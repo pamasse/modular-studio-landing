@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: modular-studio-landing
+    runtime: static
+    buildCommand: ""
+    staticPublishPath: .
+    headers:
+      - path: /*
+        name: X-Frame-Options
+        value: DENY
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+      - path: /favicon.svg
+        name: Cache-Control
+        value: public, max-age=604800
+      - path: /og-image.png
+        name: Cache-Control
+        value: public, max-age=604800
