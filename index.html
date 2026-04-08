@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modular Studio by Vestack — Turn Any Architectural Plan Into a Modular-Ready Design</title>
+    <title>Modular Studio — Turn Any Architectural Plan Into a Modular-Ready Design</title>
     <meta name="description" content="Modular Studio converts existing architectural plans into fully constructible modular designs. Secure projects, get clean data, and respond faster.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://modular-studio-landing.onrender.com/">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Modular Studio by Vestack — Turn Any Plan Into a Modular Design">
+    <meta property="og:title" content="Modular Studio — Turn Any Plan Into a Modular Design">
     <meta property="og:description" content="The only platform that converts existing architectural plans into fully constructible modular designs. Secure projects, get clean data, respond faster.">
     <meta property="og:url" content="https://modular-studio-landing.onrender.com/">
-    <meta property="og:site_name" content="Modular Studio by Vestack">
+    <meta property="og:site_name" content="Modular Studio">
     <!-- TODO: Replace with actual OG image (1200x630px recommended) -->
     <meta property="og:image" content="https://modular-studio-landing.onrender.com/og-image.png">
     <meta property="og:image:width" content="1200">
@@ -21,7 +21,7 @@
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Modular Studio by Vestack — Turn Any Plan Into a Modular Design">
+    <meta name="twitter:title" content="Modular Studio — Turn Any Plan Into a Modular Design">
     <meta name="twitter:description" content="The only platform that converts existing architectural plans into fully constructible modular designs.">
     <!-- TODO: Replace with actual OG image -->
     <meta name="twitter:image" content="https://modular-studio-landing.onrender.com/og-image.png">
@@ -36,31 +36,16 @@
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@graph": [
-            {
-                "@type": "Organization",
-                "name": "Vestack",
-                "url": "https://vestack.com",
-                "description": "Modular construction technology company"
-            },
-            {
-                "@type": "SoftwareApplication",
-                "name": "Modular Studio",
-                "description": "Platform that converts existing architectural plans into fully constructible modular designs",
-                "applicationCategory": "DesignApplication",
-                "operatingSystem": "Web",
-                "offers": {
-                    "@type": "Offer",
-                    "availability": "https://schema.org/PreOrder",
-                    "description": "Early Access"
-                },
-                "creator": {
-                    "@type": "Organization",
-                    "name": "Vestack",
-                    "url": "https://vestack.com"
-                }
-            }
-        ]
+        "@type": "SoftwareApplication",
+        "name": "Modular Studio",
+        "description": "Platform that converts existing architectural plans into fully constructible modular designs",
+        "applicationCategory": "DesignApplication",
+        "operatingSystem": "Web",
+        "offers": {
+            "@type": "Offer",
+            "availability": "https://schema.org/PreOrder",
+            "description": "Early Access"
+        }
     }
     </script>
 
@@ -70,11 +55,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         /* ========== RESET & VARIABLES ========== */
-        *, *::before, *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
             --vestack-green: #1a3c34;
@@ -89,9 +70,7 @@
             --font: "Plus Jakarta Sans", sans-serif;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
 
         body {
             font-family: var(--font);
@@ -100,765 +79,187 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
+        a { text-decoration: none; color: inherit; }
+        img { max-width: 100%; display: block; }
 
-        img {
-            max-width: 100%;
-            display: block;
-        }
-
-        /* ========== UTILITIES ========== */
-        .container {
-            max-width: 1140px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
+        .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
 
         .section-label {
-            font-size: 0.8125rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            margin-bottom: 12px;
+            font-size: 0.8125rem; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px;
         }
 
         .section-title {
             font-size: clamp(1.75rem, 4vw, 2.5rem);
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 20px;
+            font-weight: 700; line-height: 1.2; margin-bottom: 20px;
         }
 
-        .section-subtitle {
-            font-size: 1.0625rem;
-            line-height: 1.7;
-            max-width: 640px;
-        }
+        .section-subtitle { font-size: 1.0625rem; line-height: 1.7; max-width: 640px; }
 
         .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-family: var(--font);
-            font-size: 0.9375rem;
-            font-weight: 600;
-            padding: 14px 28px;
-            border-radius: 8px;
-            border: none;
-            cursor: pointer;
+            display: inline-flex; align-items: center; justify-content: center;
+            font-family: var(--font); font-size: 0.9375rem; font-weight: 600;
+            padding: 14px 28px; border-radius: 8px; border: none; cursor: pointer;
             transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
         }
+        .btn:hover { transform: translateY(-1px); }
+        .btn-lime { background: var(--vestack-lime); color: var(--vestack-green); }
+        .btn-lime:hover { background: var(--vestack-lime-dark); box-shadow: 0 4px 16px rgba(168,216,110,0.3); }
+        .btn-ghost { background: transparent; color: var(--white); border: 1.5px solid rgba(255,255,255,0.3); }
+        .btn-ghost:hover { border-color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.05); }
 
-        .btn:hover {
-            transform: translateY(-1px);
-        }
-
-        .btn-lime {
-            background: var(--vestack-lime);
-            color: var(--vestack-green);
-        }
-
-        .btn-lime:hover {
-            background: var(--vestack-lime-dark);
-            box-shadow: 0 4px 16px rgba(168, 216, 110, 0.3);
-        }
-
-        .btn-ghost {
-            background: transparent;
-            color: var(--white);
-            border: 1.5px solid rgba(255,255,255,0.3);
-        }
-
-        .btn-ghost:hover {
-            border-color: rgba(255,255,255,0.6);
-            background: rgba(255,255,255,0.05);
-        }
-
-        .btn-dark {
-            background: var(--vestack-green);
-            color: var(--white);
-        }
-
-        .btn-dark:hover {
-            background: var(--vestack-green-light);
-        }
-
-        /* Scroll animation */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(24px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-
-        /* Ensure content is visible if JS is disabled (SEO + accessibility) */
-        noscript .fade-in,
-        .no-js .fade-in {
-            opacity: 1;
-            transform: none;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
 
         /* ========== NAV ========== */
         .nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 100;
-            padding: 16px 0;
-            transition: background 0.3s, box-shadow 0.3s, padding 0.3s;
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            padding: 16px 0; transition: background 0.3s, box-shadow 0.3s, padding 0.3s;
         }
+        .nav.scrolled { background: var(--vestack-green); box-shadow: 0 2px 20px rgba(0,0,0,0.15); padding: 12px 0; }
+        .nav-inner { display: flex; align-items: center; justify-content: space-between; }
+        .nav-logo { display: flex; align-items: baseline; gap: 8px; }
+        .nav-logo-main { font-size: 1.25rem; font-weight: 700; color: var(--white); }
+        .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+        .nav-links a { font-size: 0.875rem; font-weight: 500; color: rgba(255,255,255,0.75); transition: color 0.2s; }
+        .nav-links a:hover { color: var(--white); }
+        .nav-cta .btn { padding: 10px 20px; font-size: 0.8125rem; }
 
-        .nav.scrolled {
-            background: var(--vestack-green);
-            box-shadow: 0 2px 20px rgba(0,0,0,0.15);
-            padding: 12px 0;
+        .lang-switch { display: flex; align-items: center; gap: 4px; font-size: 0.8125rem; font-weight: 600; color: rgba(255,255,255,0.5); }
+        .lang-switch button {
+            background: none; border: none; font-family: var(--font);
+            font-size: 0.8125rem; font-weight: 600; color: rgba(255,255,255,0.5);
+            cursor: pointer; padding: 4px 6px; border-radius: 4px; transition: color 0.2s, background 0.2s;
         }
+        .lang-switch button:hover { color: var(--white); }
+        .lang-switch button.active { color: var(--vestack-lime); background: rgba(168,216,110,0.12); }
 
-        .nav-inner {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .nav-logo {
-            display: flex;
-            align-items: baseline;
-            gap: 8px;
-        }
-
-        .nav-logo-main {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--white);
-        }
-
-        .nav-logo-sub {
-            font-size: 0.75rem;
-            font-weight: 500;
-            color: rgba(255,255,255,0.5);
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 32px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            font-size: 0.875rem;
-            font-weight: 500;
-            color: rgba(255,255,255,0.75);
-            transition: color 0.2s;
-        }
-
-        .nav-links a:hover {
-            color: var(--white);
-        }
-
-        .nav-cta .btn {
-            padding: 10px 20px;
-            font-size: 0.8125rem;
-        }
-
-        .nav-hamburger {
-            display: none;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 4px;
-        }
-
-        .nav-hamburger span {
-            display: block;
-            width: 22px;
-            height: 2px;
-            background: var(--white);
-            margin: 5px 0;
-            transition: transform 0.3s, opacity 0.3s;
-        }
+        .nav-hamburger { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+        .nav-hamburger span { display: block; width: 22px; height: 2px; background: var(--white); margin: 5px 0; transition: transform 0.3s, opacity 0.3s; }
 
         /* ========== HERO ========== */
-        .hero {
-            background: var(--vestack-green);
-            padding: 160px 0 100px;
-            color: var(--white);
-        }
-
+        .hero { background: var(--vestack-green); padding: 160px 0 100px; color: var(--white); }
         .hero-badge {
-            display: inline-block;
-            background: rgba(168, 216, 110, 0.12);
-            border: 1px solid rgba(168, 216, 110, 0.25);
-            color: var(--vestack-lime);
-            font-size: 0.8125rem;
-            font-weight: 600;
-            padding: 8px 16px;
-            border-radius: 100px;
-            margin-bottom: 28px;
+            display: inline-block; background: rgba(168,216,110,0.12);
+            border: 1px solid rgba(168,216,110,0.25); color: var(--vestack-lime);
+            font-size: 0.8125rem; font-weight: 600; padding: 8px 16px;
+            border-radius: 100px; margin-bottom: 28px;
         }
-
-        .hero h1 {
-            font-size: clamp(2rem, 5vw, 3.25rem);
-            font-weight: 700;
-            line-height: 1.15;
-            max-width: 720px;
-            margin-bottom: 20px;
-        }
-
-        .hero-subtitle {
-            font-size: 1.125rem;
-            color: rgba(255,255,255,0.7);
-            max-width: 560px;
-            line-height: 1.7;
-            margin-bottom: 36px;
-        }
-
-        .hero-ctas {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-            margin-bottom: 72px;
-        }
-
-        .hero-metrics {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 32px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 40px;
-        }
-
-        .hero-metric-value {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--vestack-lime);
-            margin-bottom: 6px;
-        }
-
-        .hero-metric-label {
-            font-size: 0.875rem;
-            color: rgba(255,255,255,0.55);
-            line-height: 1.5;
-        }
+        .hero h1 { font-size: clamp(2rem, 5vw, 3.25rem); font-weight: 700; line-height: 1.15; max-width: 720px; margin-bottom: 20px; }
+        .hero-subtitle { font-size: 1.125rem; color: rgba(255,255,255,0.7); max-width: 560px; line-height: 1.7; margin-bottom: 36px; }
+        .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 72px; }
+        .hero-metrics { display: grid; grid-template-columns: repeat(3,1fr); gap: 32px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 40px; }
+        .hero-metric-value { font-size: 1.5rem; font-weight: 700; color: var(--vestack-lime); margin-bottom: 6px; }
+        .hero-metric-label { font-size: 0.875rem; color: rgba(255,255,255,0.55); line-height: 1.5; }
 
         /* ========== PROBLEM ========== */
-        .problem {
-            padding: 100px 0;
-            background: var(--white);
-        }
-
-        .problem .section-label {
-            color: var(--vestack-lime-dark);
-        }
-
-        .problem-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-            margin-top: 48px;
-        }
-
-        .problem-card {
-            background: var(--off-white);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 32px 28px;
-            transition: box-shadow 0.25s, transform 0.25s;
-        }
-
-        .problem-card:hover {
-            box-shadow: 0 8px 30px rgba(26, 60, 52, 0.08);
-            transform: translateY(-2px);
-        }
-
-        .problem-card-icon {
-            width: 48px;
-            height: 48px;
-            background: rgba(168, 216, 110, 0.15);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-            font-size: 1.25rem;
-        }
-
-        .problem-card h3 {
-            font-size: 1.0625rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-            line-height: 1.3;
-        }
-
-        .problem-card p {
-            font-size: 0.9375rem;
-            color: var(--text-muted);
-            line-height: 1.65;
-        }
+        .problem { padding: 100px 0; background: var(--white); }
+        .problem .section-label { color: var(--vestack-lime-dark); }
+        .problem-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 48px; }
+        .problem-card { background: var(--off-white); border: 1px solid var(--border); border-radius: 12px; padding: 32px 28px; transition: box-shadow 0.25s, transform 0.25s; }
+        .problem-card:hover { box-shadow: 0 8px 30px rgba(26,60,52,0.08); transform: translateY(-2px); }
+        .problem-card-icon { width: 48px; height: 48px; background: rgba(168,216,110,0.15); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; }
+        .problem-card h3 { font-size: 1.0625rem; font-weight: 700; margin-bottom: 10px; line-height: 1.3; }
+        .problem-card p { font-size: 0.9375rem; color: var(--text-muted); line-height: 1.65; }
 
         /* ========== HOW IT WORKS ========== */
-        .how {
-            padding: 100px 0;
-            background: var(--vestack-green);
-            color: var(--white);
-        }
-
-        .how .section-label {
-            color: var(--vestack-lime);
-        }
-
-        .how .section-title {
-            color: var(--white);
-        }
-
-        .how-steps {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 32px;
-            margin-top: 56px;
-        }
-
-        .how-step {
-            position: relative;
-        }
-
-        .how-step-number {
-            font-size: 3.5rem;
-            font-weight: 700;
-            color: rgba(168, 216, 110, 0.15);
-            line-height: 1;
-            margin-bottom: 16px;
-        }
-
-        .how-step h3 {
-            font-size: 1.125rem;
-            font-weight: 700;
-            margin-bottom: 12px;
-            color: var(--vestack-lime);
-        }
-
-        .how-step p {
-            font-size: 0.9375rem;
-            color: rgba(255,255,255,0.65);
-            line-height: 1.7;
-        }
+        .how { padding: 100px 0; background: var(--vestack-green); color: var(--white); }
+        .how .section-label { color: var(--vestack-lime); }
+        .how .section-title { color: var(--white); }
+        .how-steps { display: grid; grid-template-columns: repeat(3,1fr); gap: 32px; margin-top: 56px; }
+        .how-step-number { font-size: 3.5rem; font-weight: 700; color: rgba(168,216,110,0.15); line-height: 1; margin-bottom: 16px; }
+        .how-step h3 { font-size: 1.125rem; font-weight: 700; margin-bottom: 12px; color: var(--vestack-lime); }
+        .how-step p { font-size: 0.9375rem; color: rgba(255,255,255,0.65); line-height: 1.7; }
 
         /* ========== FEATURES ========== */
-        .features {
-            padding: 100px 0;
-            background: var(--white);
-        }
-
-        .features .section-label {
-            color: var(--vestack-lime-dark);
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-            margin-top: 48px;
-        }
-
-        .feature-card {
-            background: var(--white);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 32px 28px;
-            transition: box-shadow 0.25s, transform 0.25s;
-        }
-
-        .feature-card:hover {
-            box-shadow: 0 8px 30px rgba(26, 60, 52, 0.08);
-            transform: translateY(-2px);
-        }
-
-        .feature-card-icon {
-            width: 48px;
-            height: 48px;
-            background: rgba(168, 216, 110, 0.15);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-            font-size: 1.3rem;
-        }
-
-        .feature-card h3 {
-            font-size: 1.0625rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-
-        .feature-card p {
-            font-size: 0.9375rem;
-            color: var(--text-muted);
-            line-height: 1.65;
-        }
-
-        .features-secondary {
-            margin-top: 56px;
-            padding-top: 40px;
-            border-top: 1px solid var(--border);
-        }
-
-        .features-secondary h3 {
-            font-size: 1.0625rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-        }
-
-        .features-secondary-list {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px 32px;
-        }
-
-        .features-secondary-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            font-size: 0.9375rem;
-            color: var(--text-muted);
-            line-height: 1.6;
-        }
-
-        .features-secondary-item .check {
-            color: var(--vestack-lime-dark);
-            font-weight: 700;
-            flex-shrink: 0;
-            margin-top: 2px;
-        }
+        .features { padding: 100px 0; background: var(--white); }
+        .features .section-label { color: var(--vestack-lime-dark); }
+        .features-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 48px; }
+        .feature-card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 32px 28px; transition: box-shadow 0.25s, transform 0.25s; }
+        .feature-card:hover { box-shadow: 0 8px 30px rgba(26,60,52,0.08); transform: translateY(-2px); }
+        .feature-card-icon { width: 48px; height: 48px; background: rgba(168,216,110,0.15); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; }
+        .feature-card h3 { font-size: 1.0625rem; font-weight: 700; margin-bottom: 10px; }
+        .feature-card p { font-size: 0.9375rem; color: var(--text-muted); line-height: 1.65; }
+        .features-secondary { margin-top: 56px; padding-top: 40px; border-top: 1px solid var(--border); }
+        .features-secondary h3 { font-size: 1.0625rem; font-weight: 700; margin-bottom: 20px; }
+        .features-secondary-list { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px 32px; }
+        .features-secondary-item { display: flex; align-items: flex-start; gap: 10px; font-size: 0.9375rem; color: var(--text-muted); line-height: 1.6; }
+        .features-secondary-item .check { color: var(--vestack-lime-dark); font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+        .features-secondary-item strong { color: var(--text-dark); }
 
         /* ========== COMPARISON ========== */
-        .comparison {
-            padding: 100px 0;
-            background: var(--off-white);
-        }
+        .comparison { padding: 100px 0; background: var(--off-white); }
+        .comparison .section-label { color: var(--vestack-lime-dark); }
+        .comparison-table-wrap { margin-top: 48px; overflow-x: auto; border-radius: 12px; border: 1px solid var(--border); background: var(--white); }
+        .comparison-table { width: 100%; border-collapse: collapse; font-size: 0.9375rem; min-width: 640px; }
+        .comparison-table thead th { padding: 16px 20px; text-align: left; font-weight: 600; font-size: 0.8125rem; text-transform: uppercase; letter-spacing: 0.04em; border-bottom: 2px solid var(--border); color: var(--text-muted); white-space: nowrap; }
+        .comparison-table thead th:last-child { background: var(--vestack-lime); color: var(--vestack-green); font-weight: 700; }
+        .comparison-table tbody td { padding: 14px 20px; border-bottom: 1px solid var(--border); color: var(--text-muted); }
+        .comparison-table tbody td:first-child { color: var(--text-dark); font-weight: 500; }
+        .comparison-table tbody td:last-child { background: rgba(168,216,110,0.06); font-weight: 600; }
+        .comparison-table tbody tr:last-child td { border-bottom: none; }
+        .comparison-table .check-yes { color: var(--vestack-lime-dark); font-weight: 700; }
+        .comparison-table .check-no { color: #c0c5c3; }
+        .comparison-table .check-partial { color: #d4a94e; }
 
-        .comparison .section-label {
-            color: var(--vestack-lime-dark);
-        }
-
-        .comparison-table-wrap {
-            margin-top: 48px;
-            overflow-x: auto;
-            border-radius: 12px;
-            border: 1px solid var(--border);
-            background: var(--white);
-        }
-
-        .comparison-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.9375rem;
-            min-width: 640px;
-        }
-
-        .comparison-table thead th {
-            padding: 16px 20px;
-            text-align: left;
-            font-weight: 600;
-            font-size: 0.8125rem;
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
-            border-bottom: 2px solid var(--border);
-            color: var(--text-muted);
-            white-space: nowrap;
-        }
-
-        .comparison-table thead th:last-child {
-            background: var(--vestack-lime);
-            color: var(--vestack-green);
-            font-weight: 700;
-        }
-
-        .comparison-table tbody td {
-            padding: 14px 20px;
-            border-bottom: 1px solid var(--border);
-            color: var(--text-muted);
-        }
-
-        .comparison-table tbody td:first-child {
-            color: var(--text-dark);
-            font-weight: 500;
-        }
-
-        .comparison-table tbody td:last-child {
-            background: rgba(168, 216, 110, 0.06);
-            font-weight: 600;
-        }
-
-        .comparison-table tbody tr:last-child td {
-            border-bottom: none;
-        }
-
-        .comparison-table .check-yes {
-            color: var(--vestack-lime-dark);
-            font-weight: 700;
-        }
-
-        .comparison-table .check-no {
-            color: #c0c5c3;
-        }
-
-        .comparison-table .check-partial {
-            color: #d4a94e;
-        }
-
-        /* ========== MARKET ========== */
-        .market {
-            padding: 100px 0;
-            background: var(--white);
-        }
-
-        .market .section-label {
-            color: var(--vestack-lime-dark);
-        }
-
-        .market-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 24px;
-            margin-top: 48px;
-        }
-
-        .market-card {
-            text-align: center;
-            background: var(--off-white);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 36px 24px;
-        }
-
-        .market-card-value {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--vestack-green);
-            margin-bottom: 8px;
-        }
-
-        .market-card-label {
-            font-size: 0.875rem;
-            color: var(--text-muted);
-            line-height: 1.5;
-        }
+        /* ========== BUILT FOR ========== */
+        .built-for { padding: 100px 0; background: var(--white); }
+        .built-for .section-label { color: var(--vestack-lime-dark); }
+        .built-for-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 48px; }
+        .built-for-card { background: var(--off-white); border: 1px solid var(--border); border-radius: 12px; padding: 36px 28px; transition: box-shadow 0.25s, transform 0.25s; }
+        .built-for-card:hover { box-shadow: 0 8px 30px rgba(26,60,52,0.08); transform: translateY(-2px); }
+        .built-for-card-icon { width: 48px; height: 48px; background: rgba(168,216,110,0.15); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; }
+        .built-for-card h3 { font-size: 1.0625rem; font-weight: 700; margin-bottom: 6px; line-height: 1.3; }
+        .built-for-card .role { font-size: 0.8125rem; color: var(--vestack-lime-dark); font-weight: 600; margin-bottom: 14px; }
+        .built-for-card p { font-size: 0.9375rem; color: var(--text-muted); line-height: 1.65; }
+        .built-for-card ul { list-style: none; margin-top: 16px; }
+        .built-for-card ul li { font-size: 0.875rem; color: var(--text-muted); padding: 5px 0 5px 20px; position: relative; }
+        .built-for-card ul li::before { content: "\2713"; position: absolute; left: 0; color: var(--vestack-lime-dark); font-weight: 700; }
 
         /* ========== CTA / WAITLIST ========== */
-        .cta-section {
-            padding: 100px 0;
-            background: var(--vestack-green);
-            color: var(--white);
-            text-align: center;
-        }
-
-        .cta-section .section-title {
-            color: var(--white);
-            max-width: 600px;
-            margin: 0 auto 12px;
-        }
-
-        .cta-section .section-subtitle {
-            color: rgba(255,255,255,0.65);
-            margin: 0 auto 40px;
-            text-align: center;
-        }
-
-        .waitlist-form {
-            display: flex;
-            gap: 12px;
-            max-width: 460px;
-            margin: 0 auto 16px;
-        }
-
-        .waitlist-form input {
-            flex: 1;
-            padding: 14px 18px;
-            border-radius: 8px;
-            border: 1.5px solid rgba(255,255,255,0.15);
-            background: rgba(255,255,255,0.08);
-            color: var(--white);
-            font-family: var(--font);
-            font-size: 0.9375rem;
-            outline: none;
-            transition: border-color 0.2s;
-        }
-
-        .waitlist-form input::placeholder {
-            color: rgba(255,255,255,0.35);
-        }
-
-        .waitlist-form input:focus {
-            border-color: var(--vestack-lime);
-        }
-
-        .waitlist-note {
-            font-size: 0.8125rem;
-            color: rgba(255,255,255,0.4);
-        }
-
-        .waitlist-success {
-            display: none;
-            text-align: center;
-        }
-
-        .waitlist-success.show {
-            display: block;
-        }
-
-        .waitlist-success-icon {
-            width: 56px;
-            height: 56px;
-            background: rgba(168, 216, 110, 0.15);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 16px;
-            font-size: 1.5rem;
-        }
-
-        .waitlist-success h3 {
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
-
-        .waitlist-success p {
-            color: rgba(255,255,255,0.6);
-            font-size: 0.9375rem;
-        }
+        .cta-section { padding: 100px 0; background: var(--vestack-green); color: var(--white); text-align: center; }
+        .cta-section .section-title { color: var(--white); max-width: 600px; margin: 0 auto 12px; }
+        .cta-section .section-subtitle { color: rgba(255,255,255,0.65); margin: 0 auto 40px; text-align: center; }
+        .waitlist-form { display: flex; gap: 12px; max-width: 460px; margin: 0 auto 16px; }
+        .waitlist-form input[type="email"] { flex: 1; padding: 14px 18px; border-radius: 8px; border: 1.5px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.08); color: var(--white); font-family: var(--font); font-size: 0.9375rem; outline: none; transition: border-color 0.2s; }
+        .waitlist-form input[type="email"]::placeholder { color: rgba(255,255,255,0.35); }
+        .waitlist-form input[type="email"]:focus { border-color: var(--vestack-lime); }
+        .waitlist-note { font-size: 0.8125rem; color: rgba(255,255,255,0.4); }
+        .waitlist-success { display: none; text-align: center; }
+        .waitlist-success.show { display: block; }
+        .waitlist-success-icon { width: 56px; height: 56px; background: rgba(168,216,110,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; font-size: 1.5rem; }
+        .waitlist-success h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 8px; }
+        .waitlist-success p { color: rgba(255,255,255,0.6); font-size: 0.9375rem; }
 
         /* ========== FOOTER ========== */
-        .footer {
-            padding: 32px 0;
-            background: #152e28;
-            text-align: center;
-        }
-
-        .footer p {
-            font-size: 0.8125rem;
-            color: rgba(255,255,255,0.35);
-        }
-
-        .footer a {
-            color: rgba(255,255,255,0.5);
-            transition: color 0.2s;
-        }
-
-        .footer a:hover {
-            color: var(--vestack-lime);
-        }
+        .footer { padding: 32px 0; background: #152e28; text-align: center; }
+        .footer p { font-size: 0.8125rem; color: rgba(255,255,255,0.35); }
 
         /* ========== RESPONSIVE ========== */
         @media (max-width: 900px) {
-            .hero-metrics {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-
-            .problem-grid,
-            .how-steps,
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .market-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .features-secondary-list {
-                grid-template-columns: 1fr;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .nav-hamburger {
-                display: block;
-            }
-
+            .hero-metrics { grid-template-columns: 1fr; gap: 20px; }
+            .problem-grid, .how-steps, .features-grid, .built-for-grid { grid-template-columns: 1fr; }
+            .features-secondary-list { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+            .nav-hamburger { display: block; }
             .nav-mobile {
-                display: flex !important;
-                position: fixed;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background: var(--vestack-green);
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                gap: 32px;
-                z-index: 99;
+                display: flex !important; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+                background: var(--vestack-green); flex-direction: column;
+                align-items: center; justify-content: center; gap: 32px; z-index: 99;
             }
-
-            .nav-mobile a {
-                font-size: 1.125rem;
-                color: rgba(255,255,255,0.8);
-                font-weight: 500;
-            }
-
-            .nav-mobile .btn-lime {
-                margin-top: 8px;
-            }
-
-            .nav-mobile-close {
-                position: absolute;
-                top: 20px;
-                right: 24px;
-                background: none;
-                border: none;
-                color: var(--white);
-                font-size: 1.5rem;
-                cursor: pointer;
-            }
+            .nav-mobile a { font-size: 1.125rem; color: rgba(255,255,255,0.8); font-weight: 500; }
+            .nav-mobile .btn-lime { margin-top: 8px; }
+            .nav-mobile-close { position: absolute; top: 20px; right: 24px; background: none; border: none; color: var(--white); font-size: 1.5rem; cursor: pointer; }
+            .nav-mobile .lang-switch { margin-top: 8px; }
         }
 
         @media (max-width: 600px) {
-            .hero {
-                padding: 130px 0 72px;
-            }
-
-            .hero h1 {
-                font-size: 1.75rem;
-            }
-
-            .hero-ctas {
-                flex-direction: column;
-                margin-bottom: 48px;
-            }
-
-            .hero-ctas .btn {
-                width: 100%;
-                text-align: center;
-            }
-
-            .waitlist-form {
-                flex-direction: column;
-            }
-
-            .market-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .comparison-table-wrap {
-                margin-left: -24px;
-                margin-right: -24px;
-                border-radius: 0;
-                border-left: none;
-                border-right: none;
-            }
+            .hero { padding: 130px 0 72px; }
+            .hero h1 { font-size: 1.75rem; }
+            .hero-ctas { flex-direction: column; margin-bottom: 48px; }
+            .hero-ctas .btn { width: 100%; text-align: center; }
+            .waitlist-form { flex-direction: column; }
+            .comparison-table-wrap { margin-left: -24px; margin-right: -24px; border-radius: 0; border-left: none; border-right: none; }
         }
     </style>
 </head>
@@ -869,55 +270,64 @@
         <div class="container nav-inner">
             <a href="#" class="nav-logo">
                 <span class="nav-logo-main">Modular Studio</span>
-                <span class="nav-logo-sub">by Vestack</span>
             </a>
             <ul class="nav-links">
-                <li><a href="#problem">Problem</a></li>
-                <li><a href="#how">How It Works</a></li>
-                <li><a href="#features">Features</a></li>
-                <li><a href="#comparison">Comparison</a></li>
-                <li class="nav-cta"><a href="#waitlist" class="btn btn-lime">Request Early Access</a></li>
+                <li><a href="#problem" data-i18n="nav_problem">Problem</a></li>
+                <li><a href="#how" data-i18n="nav_how">How It Works</a></li>
+                <li><a href="#features" data-i18n="nav_features">Features</a></li>
+                <li><a href="#comparison" data-i18n="nav_comparison">Comparison</a></li>
+                <li>
+                    <div class="lang-switch">
+                        <button data-lang="en" class="active">EN</button>
+                        <span>/</span>
+                        <button data-lang="fr">FR</button>
+                    </div>
+                </li>
+                <li class="nav-cta"><a href="#waitlist" class="btn btn-lime" data-i18n="cta_early_access">Request Early Access</a></li>
             </ul>
             <button class="nav-hamburger" id="navHamburger" aria-label="Open menu">
-                <span></span>
-                <span></span>
-                <span></span>
+                <span></span><span></span><span></span>
             </button>
         </div>
     </nav>
 
-    <!-- Mobile nav overlay -->
+    <!-- Mobile nav -->
     <div class="nav-mobile" id="navMobile" style="display:none;">
         <button class="nav-mobile-close" id="navMobileClose" aria-label="Close menu">&times;</button>
-        <a href="#problem" class="nav-mobile-link">Problem</a>
-        <a href="#how" class="nav-mobile-link">How It Works</a>
-        <a href="#features" class="nav-mobile-link">Features</a>
-        <a href="#comparison" class="nav-mobile-link">Comparison</a>
-        <a href="#waitlist" class="btn btn-lime">Request Early Access</a>
+        <a href="#problem" class="nav-mobile-link" data-i18n="nav_problem">Problem</a>
+        <a href="#how" class="nav-mobile-link" data-i18n="nav_how">How It Works</a>
+        <a href="#features" class="nav-mobile-link" data-i18n="nav_features">Features</a>
+        <a href="#comparison" class="nav-mobile-link" data-i18n="nav_comparison">Comparison</a>
+        <div class="lang-switch">
+            <button data-lang="en" class="active">EN</button>
+            <span>/</span>
+            <button data-lang="fr">FR</button>
+        </div>
+        <a href="#waitlist" class="btn btn-lime" data-i18n="cta_early_access">Request Early Access</a>
     </div>
 
     <!-- ========== HERO ========== -->
     <section class="hero" id="hero">
         <div class="container">
-            <div class="hero-badge">Early Access &mdash; Now accepting modular manufacturers</div>
-            <h1>Turn any architectural plan into a fully constructible modular design</h1>
-            <p class="hero-subtitle">Secure your projects from day one. Get clean, structured data for production. Respond to opportunities in hours, not weeks.</p>
+            <div class="hero-badge" data-i18n="hero_badge">Early Access — Now accepting modular manufacturers</div>
+            <h1 data-i18n="hero_title">Turn any architectural plan into a fully constructible modular design</h1>
+            <p class="hero-subtitle" data-i18n="hero_subtitle">Secure your projects from day one. Get clean, structured data for production. Respond to opportunities in hours, not weeks.</p>
             <div class="hero-ctas">
-                <a href="#waitlist" class="btn btn-lime">Request Early Access</a>
-                <a href="#how" class="btn btn-ghost">See How It Works</a>
+                <a href="#waitlist" class="btn btn-lime" data-i18n="cta_early_access">Request Early Access</a>
+                <a href="#how" class="btn btn-ghost" data-i18n="cta_how">See How It Works</a>
             </div>
             <div class="hero-metrics">
                 <div class="fade-in">
                     <div class="hero-metric-value">80%+</div>
-                    <div class="hero-metric-label">of modular projects start from existing architectural plans</div>
+                    <div class="hero-metric-label" data-i18n="metric_1">of modular projects start from existing architectural plans</div>
                 </div>
                 <div class="fade-in">
-                    <div class="hero-metric-value">Weeks &rarr; Hours</div>
-                    <div class="hero-metric-label">plan adaptation time with Modular Studio</div>
+                    <div class="hero-metric-value" data-i18n="metric_2_value">Weeks → Hours</div>
+                    <div class="hero-metric-label" data-i18n="metric_2">plan adaptation time with Modular Studio</div>
                 </div>
                 <div class="fade-in">
-                    <div class="hero-metric-value">Zero</div>
-                    <div class="hero-metric-label">competing tools for plan-to-modular conversion</div>
+                    <div class="hero-metric-value" data-i18n="metric_3_value">Zero</div>
+                    <div class="hero-metric-label" data-i18n="metric_3">competing tools for plan-to-modular conversion</div>
                 </div>
             </div>
         </div>
@@ -926,30 +336,24 @@
     <!-- ========== PROBLEM ========== -->
     <section class="problem" id="problem">
         <div class="container">
-            <div class="section-label fade-in">The Problem</div>
-            <h2 class="section-title fade-in">Modular builders deserve better tools</h2>
-            <p class="section-subtitle fade-in">Every modular project starts with an architect's plan. But today, turning that plan into something your factory can actually build is slow, painful, and risky.</p>
+            <div class="section-label fade-in" data-i18n="problem_label">The Problem</div>
+            <h2 class="section-title fade-in" data-i18n="problem_title">Modular builders deserve better tools</h2>
+            <p class="section-subtitle fade-in" data-i18n="problem_subtitle">Every modular project starts with an architect's plan. But today, turning that plan into something your factory can actually build is slow, painful, and risky.</p>
             <div class="problem-grid">
                 <div class="problem-card fade-in">
-                    <div class="problem-card-icon">
-                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="color:var(--vestack-green)"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-                    </div>
-                    <h3>Unmodularizable plans discovered too late</h3>
-                    <p>You receive an architect's plan and realize mid-project that parts of it simply can't be built as modules. Redesigns, cost overruns, and delays follow.</p>
+                    <div class="problem-card-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="color:var(--vestack-green)"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+                    <h3 data-i18n="problem_card1_title">Unmodularizable plans discovered too late</h3>
+                    <p data-i18n="problem_card1_text">You receive an architect's plan and realize mid-project that parts of it simply can't be built as modules. Redesigns, cost overruns, and delays follow.</p>
                 </div>
                 <div class="problem-card fade-in">
-                    <div class="problem-card-icon">
-                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="color:var(--vestack-green)"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-                    </div>
-                    <h3>Messy data, manual workflows</h3>
-                    <p>Weeks of back-and-forth between Excel and AutoCAD. Dimensions don't match, data gets lost in translation between design and production.</p>
+                    <div class="problem-card-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="color:var(--vestack-green)"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+                    <h3 data-i18n="problem_card2_title">Messy data, manual workflows</h3>
+                    <p data-i18n="problem_card2_text">Weeks of back-and-forth between Excel and AutoCAD. Dimensions don't match, data gets lost in translation between design and production.</p>
                 </div>
                 <div class="problem-card fade-in">
-                    <div class="problem-card-icon">
-                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="color:var(--vestack-green)"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                    </div>
-                    <h3>Too slow to win projects</h3>
-                    <p>When adapting a plan takes weeks, you can only bid on a fraction of available projects. Opportunities pass you by while you're still in the spreadsheet.</p>
+                    <div class="problem-card-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="color:var(--vestack-green)"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+                    <h3 data-i18n="problem_card3_title">Too slow to win projects</h3>
+                    <p data-i18n="problem_card3_text">When adapting a plan takes weeks, you can only bid on a fraction of available projects. Opportunities pass you by while you're still in the spreadsheet.</p>
                 </div>
             </div>
         </div>
@@ -958,23 +362,23 @@
     <!-- ========== HOW IT WORKS ========== -->
     <section class="how" id="how">
         <div class="container">
-            <div class="section-label fade-in">How It Works</div>
-            <h2 class="section-title fade-in">From architect's plan to modular-ready in 3 steps</h2>
+            <div class="section-label fade-in" data-i18n="how_label">How It Works</div>
+            <h2 class="section-title fade-in" data-i18n="how_title">From architect's plan to modular-ready in 3 steps</h2>
             <div class="how-steps">
                 <div class="how-step fade-in">
                     <div class="how-step-number">01</div>
-                    <h3>Import &amp; Protect</h3>
-                    <p>Upload the architect's plan as-is (PDF, DWG/DXF, and soon IFC). Lock the elements that must stay fixed &mdash; permitted facades, stairwells, structural walls, technical shafts. Everything locked becomes an absolute constraint.</p>
+                    <h3 data-i18n="how_step1_title">Import & Protect</h3>
+                    <p data-i18n="how_step1_text">Upload the architect's plan as-is (PDF, DWG/DXF, and soon IFC). Lock the elements that must stay fixed — permitted facades, stairwells, structural walls, technical shafts. Everything locked becomes an absolute constraint.</p>
                 </div>
                 <div class="how-step fade-in">
                     <div class="how-step-number">02</div>
-                    <h3>Modular Conversion</h3>
-                    <p>The plan is automatically split into buildable modules that respect your factory's constraints: transport dimensions, crane capacity, structural grid. Your catalogue modules are placed first to maximize repeatability. Residual spaces are filled with custom-fit elements.</p>
+                    <h3 data-i18n="how_step2_title">Modular Conversion</h3>
+                    <p data-i18n="how_step2_text">The plan is automatically split into buildable modules that respect your factory's constraints: transport dimensions, crane capacity, structural grid. Your catalogue modules are placed first to maximize repeatability. Residual spaces are filled with custom-fit elements.</p>
                 </div>
                 <div class="how-step fade-in">
                     <div class="how-step-number">03</div>
-                    <h3>Optimize &amp; Export</h3>
-                    <p>Fine-tune the unit mix to maximize module repetition. Check zoning compliance. Export to Revit for execution. What used to take weeks now takes hours.</p>
+                    <h3 data-i18n="how_step3_title">Optimize & Export</h3>
+                    <p data-i18n="how_step3_text">Fine-tune the unit mix to maximize module repetition. Check zoning compliance. Export to Revit for execution. What used to take weeks now takes hours.</p>
                 </div>
             </div>
         </div>
@@ -983,77 +387,50 @@
     <!-- ========== FEATURES ========== -->
     <section class="features" id="features">
         <div class="container">
-            <div class="section-label fade-in">Features</div>
-            <h2 class="section-title fade-in">Everything you need to go from plan to production</h2>
-            <p class="section-subtitle fade-in">Six core capabilities designed for modular manufacturers who work with real architectural plans, not blank canvases.</p>
+            <div class="section-label fade-in" data-i18n="features_label">Features</div>
+            <h2 class="section-title fade-in" data-i18n="features_title">Everything you need to go from plan to production</h2>
+            <p class="section-subtitle fade-in" data-i18n="features_subtitle">Six core capabilities designed for modular manufacturers who work with real architectural plans, not blank canvases.</p>
             <div class="features-grid">
                 <div class="feature-card fade-in">
-                    <div class="feature-card-icon">
-                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="color:var(--vestack-green)"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-                    </div>
-                    <h3>Import existing plans</h3>
-                    <p>Upload the architect's plan as-is. PDF, DWG/DXF, and soon IFC. No need to redraw. The existing plan &mdash; with its permits, regulations, and design intent &mdash; is your starting point.</p>
+                    <div class="feature-card-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="color:var(--vestack-green)"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+                    <h3 data-i18n="feat1_title">Import existing plans</h3>
+                    <p data-i18n="feat1_text">Upload the architect's plan as-is. PDF, DWG/DXF, and soon IFC. No need to redraw. The existing plan — with its permits, regulations, and design intent — is your starting point.</p>
                 </div>
                 <div class="feature-card fade-in">
-                    <div class="feature-card-icon">
-                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="color:var(--vestack-green)"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
-                    </div>
-                    <h3>Freeze critical elements</h3>
-                    <p>Lock the elements that can't move: permitted facades, stairwells, technical shafts, load-bearing walls. Locked elements become absolute constraints. The architect stays in control.</p>
+                    <div class="feature-card-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="color:var(--vestack-green)"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>
+                    <h3 data-i18n="feat2_title">Freeze critical elements</h3>
+                    <p data-i18n="feat2_text">Lock the elements that can't move: permitted facades, stairwells, technical shafts, load-bearing walls. Locked elements become absolute constraints. The architect stays in control.</p>
                 </div>
                 <div class="feature-card fade-in">
-                    <div class="feature-card-icon">
-                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="color:var(--vestack-green)"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
-                    </div>
-                    <h3>Automatic modular split</h3>
-                    <p>The plan is split into modules that respect your factory's real constraints: transport limits, crane capacity, structural grid. Catalogue modules are placed first to maximize repetition.</p>
+                    <div class="feature-card-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="color:var(--vestack-green)"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></div>
+                    <h3 data-i18n="feat3_title">Automatic modular split</h3>
+                    <p data-i18n="feat3_text">The plan is split into modules that respect your factory's real constraints: transport limits, crane capacity, structural grid. Catalogue modules are placed first to maximize repetition.</p>
                 </div>
                 <div class="feature-card fade-in">
-                    <div class="feature-card-icon">
-                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="color:var(--vestack-green)"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
-                    </div>
-                    <h3>Smart residual filling</h3>
-                    <p>Standard modules never cover 100% of a building. Corners, cores, and junctions are automatically filled with custom-fit elements that are dimensioned and buildable.</p>
+                    <div class="feature-card-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="color:var(--vestack-green)"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
+                    <h3 data-i18n="feat4_title">Smart residual filling</h3>
+                    <p data-i18n="feat4_text">Standard modules never cover 100% of a building. Corners, cores, and junctions are automatically filled with custom-fit elements that are dimensioned and buildable.</p>
                 </div>
                 <div class="feature-card fade-in">
-                    <div class="feature-card-icon">
-                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="color:var(--vestack-green)"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-                    </div>
-                    <h3>Unit mix optimization</h3>
-                    <p>Find the best combination of unit types (studio, 1-bed, 2-bed, 3-bed) to maximize module repetition, reduce production costs, and meet the program. Integrates exposure and orientation constraints.</p>
+                    <div class="feature-card-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="color:var(--vestack-green)"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+                    <h3 data-i18n="feat5_title">Unit mix optimization</h3>
+                    <p data-i18n="feat5_text">Find the best combination of unit types (studio, 1-bed, 2-bed, 3-bed) to maximize module repetition, reduce production costs, and meet the program. Integrates exposure and orientation constraints.</p>
                 </div>
                 <div class="feature-card fade-in">
-                    <div class="feature-card-icon">
-                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="color:var(--vestack-green)"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
-                    </div>
-                    <h3>BIM export to Revit</h3>
-                    <p>The modular plan goes straight into your existing BIM workflow. Every module and element is exported with its dimensions, type, and properties. The Revit model is ready for execution.</p>
+                    <div class="feature-card-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="color:var(--vestack-green)"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg></div>
+                    <h3 data-i18n="feat6_title">BIM export to Revit</h3>
+                    <p data-i18n="feat6_text">The modular plan goes straight into your existing BIM workflow. Every module and element is exported with its dimensions, type, and properties. The Revit model is ready for execution.</p>
                 </div>
             </div>
 
             <div class="features-secondary fade-in">
-                <h3>Also included</h3>
+                <h3 data-i18n="feat_also">Also included</h3>
                 <div class="features-secondary-list">
-                    <div class="features-secondary-item">
-                        <span class="check">&#10003;</span>
-                        <span><strong>Automatic zoning check</strong> &mdash; height limits, footprint, setbacks retrieved from the project address</span>
-                    </div>
-                    <div class="features-secondary-item">
-                        <span class="check">&#10003;</span>
-                        <span><strong>Google Maps base layer</strong> &mdash; project positioned on the real plot with orientation and urban context</span>
-                    </div>
-                    <div class="features-secondary-item">
-                        <span class="check">&#10003;</span>
-                        <span><strong>Version history</strong> &mdash; every run creates a saved version, one-click rollback</span>
-                    </div>
-                    <div class="features-secondary-item">
-                        <span class="check">&#10003;</span>
-                        <span><strong>8 editable element types</strong> &mdash; walls, windows, doors, partitions, load-bearing, stairs, technical shafts, rooms</span>
-                    </div>
-                    <div class="features-secondary-item">
-                        <span class="check">&#10003;</span>
-                        <span><strong>5 building typologies</strong> &mdash; multi-family residential, office, school, hotel, and single-family in development</span>
-                    </div>
+                    <div class="features-secondary-item"><span class="check">&#10003;</span><span><strong data-i18n="feat_sec1_title">Automatic zoning check</strong> — <span data-i18n="feat_sec1_desc">height limits, footprint, setbacks retrieved from the project address</span></span></div>
+                    <div class="features-secondary-item"><span class="check">&#10003;</span><span><strong data-i18n="feat_sec2_title">Google Maps base layer</strong> — <span data-i18n="feat_sec2_desc">project positioned on the real plot with orientation and urban context</span></span></div>
+                    <div class="features-secondary-item"><span class="check">&#10003;</span><span><strong data-i18n="feat_sec3_title">Version history</strong> — <span data-i18n="feat_sec3_desc">every run creates a saved version, one-click rollback</span></span></div>
+                    <div class="features-secondary-item"><span class="check">&#10003;</span><span><strong data-i18n="feat_sec4_title">8 editable element types</strong> — <span data-i18n="feat_sec4_desc">walls, windows, doors, partitions, load-bearing, stairs, technical shafts, rooms</span></span></div>
+                    <div class="features-secondary-item"><span class="check">&#10003;</span><span><strong data-i18n="feat_sec5_title">5 building typologies</strong> — <span data-i18n="feat_sec5_desc">multi-family residential, office, school, hotel, and single-family in development</span></span></div>
                 </div>
             </div>
         </div>
@@ -1062,97 +439,70 @@
     <!-- ========== COMPARISON ========== -->
     <section class="comparison" id="comparison">
         <div class="container">
-            <div class="section-label fade-in">Comparison</div>
-            <h2 class="section-title fade-in">What no one else does</h2>
-            <p class="section-subtitle fade-in">Existing tools generate plans from scratch. Modular Studio is the only platform that converts an existing architectural plan into a modular-ready design.</p>
+            <div class="section-label fade-in" data-i18n="comp_label">Comparison</div>
+            <h2 class="section-title fade-in" data-i18n="comp_title">What no one else does</h2>
+            <p class="section-subtitle fade-in" data-i18n="comp_subtitle">Existing tools generate plans from scratch. Modular Studio is the only platform that converts an existing architectural plan into a modular-ready design.</p>
             <div class="comparison-table-wrap fade-in">
                 <table class="comparison-table">
                     <thead>
                         <tr>
-                            <th>Capability</th>
-                            <th>Zenerate</th>
-                            <th>TestFit</th>
-                            <th>Higharc</th>
-                            <th>Prescient</th>
+                            <th data-i18n="comp_capability">Capability</th>
+                            <th>Zenerate</th><th>TestFit</th><th>Higharc</th><th>Prescient</th>
                             <th>Modular Studio</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Convert an existing plan to modular</td>
-                            <td class="check-no">&#10007;</td>
-                            <td class="check-no">&#10007;</td>
-                            <td class="check-no">&#10007;</td>
-                            <td class="check-no">&#10007;</td>
-                            <td class="check-yes">&#10003;</td>
-                        </tr>
-                        <tr>
-                            <td>Freeze plan elements</td>
-                            <td class="check-no">&#10007;</td>
-                            <td class="check-no">&#10007;</td>
-                            <td class="check-no">&#10007;</td>
-                            <td class="check-no">&#10007;</td>
-                            <td class="check-yes">&#10003;</td>
-                        </tr>
-                        <tr>
-                            <td>Catalogue modules + custom elements</td>
-                            <td class="check-no">&#10007;</td>
-                            <td class="check-no">&#10007;</td>
-                            <td class="check-no">&#10007;</td>
-                            <td class="check-partial">&#9888; closed</td>
-                            <td class="check-yes">&#10003;</td>
-                        </tr>
-                        <tr>
-                            <td>Transport &amp; crane constraints</td>
-                            <td class="check-no">&#10007;</td>
-                            <td class="check-no">&#10007;</td>
-                            <td class="check-no">&#10007;</td>
-                            <td class="check-partial">&#9888; closed</td>
-                            <td class="check-yes">&#10003;</td>
-                        </tr>
-                        <tr>
-                            <td>Unit mix optimization</td>
-                            <td class="check-yes">&#10003;</td>
-                            <td class="check-yes">&#10003;</td>
-                            <td class="check-no">&#10007;</td>
-                            <td class="check-no">&#10007;</td>
-                            <td class="check-yes">&#10003;</td>
-                        </tr>
-                        <tr>
-                            <td>Open platform / SaaS</td>
-                            <td class="check-yes">&#10003;</td>
-                            <td class="check-yes">&#10003;</td>
-                            <td class="check-yes">&#10003;</td>
-                            <td class="check-no">&#10007;</td>
-                            <td class="check-yes">&#10003;</td>
-                        </tr>
+                        <tr><td data-i18n="comp_row1">Convert an existing plan to modular</td><td class="check-no">&#10007;</td><td class="check-no">&#10007;</td><td class="check-no">&#10007;</td><td class="check-no">&#10007;</td><td class="check-yes">&#10003;</td></tr>
+                        <tr><td data-i18n="comp_row2">Freeze plan elements</td><td class="check-no">&#10007;</td><td class="check-no">&#10007;</td><td class="check-no">&#10007;</td><td class="check-no">&#10007;</td><td class="check-yes">&#10003;</td></tr>
+                        <tr><td data-i18n="comp_row3">Catalogue modules + custom elements</td><td class="check-no">&#10007;</td><td class="check-no">&#10007;</td><td class="check-no">&#10007;</td><td class="check-partial">&#9888; closed</td><td class="check-yes">&#10003;</td></tr>
+                        <tr><td data-i18n="comp_row4">Transport &amp; crane constraints</td><td class="check-no">&#10007;</td><td class="check-no">&#10007;</td><td class="check-no">&#10007;</td><td class="check-partial">&#9888; closed</td><td class="check-yes">&#10003;</td></tr>
+                        <tr><td data-i18n="comp_row5">Unit mix optimization</td><td class="check-yes">&#10003;</td><td class="check-yes">&#10003;</td><td class="check-no">&#10007;</td><td class="check-no">&#10007;</td><td class="check-yes">&#10003;</td></tr>
+                        <tr><td data-i18n="comp_row6">Open platform / SaaS</td><td class="check-yes">&#10003;</td><td class="check-yes">&#10003;</td><td class="check-yes">&#10003;</td><td class="check-no">&#10007;</td><td class="check-yes">&#10003;</td></tr>
                     </tbody>
                 </table>
             </div>
         </div>
     </section>
 
-    <!-- ========== MARKET ========== -->
-    <section class="market" id="market">
+    <!-- ========== BUILT FOR YOUR WORKFLOW ========== -->
+    <section class="built-for" id="built-for">
         <div class="container">
-            <div class="section-label fade-in">Market Opportunity</div>
-            <h2 class="section-title fade-in">A massive market with no dedicated tools</h2>
-            <div class="market-grid">
-                <div class="market-card fade-in">
-                    <div class="market-card-value">$103B</div>
-                    <div class="market-card-label">Global modular construction market (2024)</div>
+            <div class="section-label fade-in" data-i18n="built_label">Built for your workflow</div>
+            <h2 class="section-title fade-in" data-i18n="built_title">One platform, every team involved</h2>
+            <p class="section-subtitle fade-in" data-i18n="built_subtitle">Whether you run the factory floor, lead the design office, or close the deals — Modular Studio fits into the way you already work.</p>
+            <div class="built-for-grid">
+                <div class="built-for-card fade-in">
+                    <div class="built-for-card-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="color:var(--vestack-green)"><path d="M2 20h20"/><path d="M5 20V10l7-6 7 6v10"/><path d="M9 20v-4h6v4"/></svg></div>
+                    <h3 data-i18n="built_card1_title">Secure every project before production</h3>
+                    <div class="role" data-i18n="built_card1_role">Production & factory managers</div>
+                    <p data-i18n="built_card1_text">Verify that every plan is 100% constructible in your factory before a single module is built. Transport dimensions, crane capacity, structural grid — all checked automatically.</p>
+                    <ul>
+                        <li data-i18n="built_card1_li1">No more last-minute redesigns on the factory floor</li>
+                        <li data-i18n="built_card1_li2">Manufacturing constraints enforced from day one</li>
+                        <li data-i18n="built_card1_li3">Clean data flows straight to production</li>
+                    </ul>
                 </div>
-                <div class="market-card fade-in">
-                    <div class="market-card-value">~8%</div>
-                    <div class="market-card-label">Annual growth &rarr; $162B by 2030</div>
+                <div class="built-for-card fade-in">
+                    <div class="built-for-card-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="color:var(--vestack-green)"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+                    <h3 data-i18n="built_card2_title">Adapt plans without starting over</h3>
+                    <div class="role" data-i18n="built_card2_role">Design & engineering teams</div>
+                    <p data-i18n="built_card2_text">Start from the architect's validated plan. Lock what matters — permitted facades, stairs, shafts. The rest adapts to modular constraints while preserving the original design intent.</p>
+                    <ul>
+                        <li data-i18n="built_card2_li1">Protect permits and architectural intent</li>
+                        <li data-i18n="built_card2_li2">Export directly to Revit for BIM workflows</li>
+                        <li data-i18n="built_card2_li3">Eliminate weeks of manual back-and-forth</li>
+                    </ul>
                 </div>
-                <div class="market-card fade-in">
-                    <div class="market-card-value">1,600+</div>
-                    <div class="market-card-label">Modular manufacturers worldwide</div>
-                </div>
-                <div class="market-card fade-in">
-                    <div class="market-card-value">0</div>
-                    <div class="market-card-label">Commercial tools for plan-to-modular conversion</div>
+                <div class="built-for-card fade-in">
+                    <div class="built-for-card-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="color:var(--vestack-green)"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+                    <h3 data-i18n="built_card3_title">Respond faster, win more projects</h3>
+                    <div class="role" data-i18n="built_card3_role">Business development & sales</div>
+                    <p data-i18n="built_card3_text">Go from incoming plan to feasibility study and cost estimate in hours instead of weeks. Bid on more tenders, qualify more opportunities, and close faster than competitors still stuck in spreadsheets.</p>
+                    <ul>
+                        <li data-i18n="built_card3_li1">Faster turnaround on tenders and quotes</li>
+                        <li data-i18n="built_card3_li2">Reliable feasibility from the first meeting</li>
+                        <li data-i18n="built_card3_li3">More projects evaluated, more projects won</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -1161,26 +511,24 @@
     <!-- ========== CTA / WAITLIST ========== -->
     <section class="cta-section" id="waitlist">
         <div class="container">
-            <h2 class="section-title fade-in">Get early access to Modular Studio</h2>
-            <p class="section-subtitle fade-in">Join the first modular manufacturers transforming how they go from architect's plan to production-ready design.</p>
+            <h2 class="section-title fade-in" data-i18n="cta_title">Get early access to Modular Studio</h2>
+            <p class="section-subtitle fade-in" data-i18n="cta_subtitle">Join the first modular manufacturers transforming how they go from architect's plan to production-ready design.</p>
             <div id="waitlistForm" class="fade-in">
                 <form class="waitlist-form" id="waitlistFormEl" action="https://api.web3forms.com/submit" method="POST">
-                    <!-- Web3Forms: replace with your access key from https://web3forms.com -->
                     <input type="hidden" name="access_key" value="c2613df0-2cb4-4fd8-820a-1761c0959883">
-                    <input type="hidden" name="subject" content="New Modular Studio Waitlist Signup">
+                    <input type="hidden" name="subject" value="New Modular Studio Waitlist Signup">
                     <input type="hidden" name="from_name" value="Modular Studio Waitlist">
                     <input type="hidden" name="redirect" value="https://modular-studio-landing.onrender.com/#waitlist">
-                    <!-- Honeypot anti-spam -->
-                    <input type="checkbox" name="botcheck" class="hidden" style="display:none">
-                    <input type="email" name="email" placeholder="Your work email" required aria-label="Email address">
-                    <button type="submit" class="btn btn-lime">Request Access</button>
+                    <input type="checkbox" name="botcheck" style="display:none">
+                    <input type="email" name="email" data-i18n-placeholder="form_placeholder" placeholder="Your work email" required aria-label="Email address">
+                    <button type="submit" class="btn btn-lime" data-i18n="form_submit">Request Access</button>
                 </form>
-                <p class="waitlist-note">No spam. Early access updates and a personal demo.</p>
+                <p class="waitlist-note" data-i18n="form_note">No spam. Early access updates and a personal demo.</p>
             </div>
             <div id="waitlistSuccess" class="waitlist-success fade-in">
                 <div class="waitlist-success-icon">&#10003;</div>
-                <h3>You're on the list</h3>
-                <p>We'll reach out soon with early access details and a personal demo.</p>
+                <h3 data-i18n="form_success_title">You're on the list</h3>
+                <p data-i18n="form_success_text">We'll reach out soon with early access details and a personal demo.</p>
             </div>
         </div>
     </section>
@@ -1188,84 +536,227 @@
     <!-- ========== FOOTER ========== -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2026 Modular Studio by <a href="https://vestack.com" target="_blank" rel="noopener">Vestack</a></p>
+            <p>&copy; 2026 Modular Studio</p>
         </div>
     </footer>
 
-    <!-- Fallback: make all fade-in elements visible if JS is disabled -->
     <noscript><style>.fade-in { opacity: 1 !important; transform: none !important; }</style></noscript>
 
-    <!-- ========== JS ========== -->
     <script>
-        // Nav scroll effect
-        const nav = document.getElementById('nav');
-        window.addEventListener('scroll', () => {
-            nav.classList.toggle('scrolled', window.scrollY > 40);
-        });
-
-        // Mobile nav
-        const hamburger = document.getElementById('navHamburger');
-        const mobileNav = document.getElementById('navMobile');
-        const mobileClose = document.getElementById('navMobileClose');
-
-        hamburger.addEventListener('click', () => {
-            mobileNav.style.display = 'flex';
-        });
-
-        mobileClose.addEventListener('click', () => {
-            mobileNav.style.display = 'none';
-        });
-
-        document.querySelectorAll('.nav-mobile-link').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileNav.style.display = 'none';
-            });
-        });
-
-        // Scroll animations
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-        // Waitlist form — Web3Forms handles submission via POST
-        const form = document.getElementById('waitlistFormEl');
-        const formContainer = document.getElementById('waitlistForm');
-        const successMessage = document.getElementById('waitlistSuccess');
-
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const submitBtn = form.querySelector('button[type="submit"]');
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Sending...';
-
-            try {
-                const formData = new FormData(form);
-                const res = await fetch('https://api.web3forms.com/submit', {
-                    method: 'POST',
-                    body: formData
-                });
-                const data = await res.json();
-
-                if (data.success) {
-                    formContainer.style.display = 'none';
-                    successMessage.classList.add('show');
-                    successMessage.classList.add('visible');
-                } else {
-                    submitBtn.disabled = false;
-                    submitBtn.textContent = 'Request Access';
-                    alert('Something went wrong. Please try again.');
-                }
-            } catch (err) {
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Request Access';
-                alert('Network error. Please try again.');
+        // ==================== i18n ====================
+        const T = {
+            en: {
+                nav_problem: "Problem", nav_how: "How It Works", nav_features: "Features", nav_comparison: "Comparison",
+                cta_early_access: "Request Early Access", cta_how: "See How It Works",
+                hero_badge: "Early Access \u2014 Now accepting modular manufacturers",
+                hero_title: "Turn any architectural plan into a fully constructible modular design",
+                hero_subtitle: "Secure your projects from day one. Get clean, structured data for production. Respond to opportunities in hours, not weeks.",
+                metric_1: "of modular projects start from existing architectural plans",
+                metric_2_value: "Weeks \u2192 Hours", metric_2: "plan adaptation time with Modular Studio",
+                metric_3_value: "Zero", metric_3: "competing tools for plan-to-modular conversion",
+                problem_label: "The Problem", problem_title: "Modular builders deserve better tools",
+                problem_subtitle: "Every modular project starts with an architect\u2019s plan. But today, turning that plan into something your factory can actually build is slow, painful, and risky.",
+                problem_card1_title: "Unmodularizable plans discovered too late",
+                problem_card1_text: "You receive an architect\u2019s plan and realize mid-project that parts of it simply can\u2019t be built as modules. Redesigns, cost overruns, and delays follow.",
+                problem_card2_title: "Messy data, manual workflows",
+                problem_card2_text: "Weeks of back-and-forth between Excel and AutoCAD. Dimensions don\u2019t match, data gets lost in translation between design and production.",
+                problem_card3_title: "Too slow to win projects",
+                problem_card3_text: "When adapting a plan takes weeks, you can only bid on a fraction of available projects. Opportunities pass you by while you\u2019re still in the spreadsheet.",
+                how_label: "How It Works", how_title: "From architect\u2019s plan to modular-ready in 3 steps",
+                how_step1_title: "Import & Protect",
+                how_step1_text: "Upload the architect\u2019s plan as-is (PDF, DWG/DXF, and soon IFC). Lock the elements that must stay fixed \u2014 permitted facades, stairwells, structural walls, technical shafts. Everything locked becomes an absolute constraint.",
+                how_step2_title: "Modular Conversion",
+                how_step2_text: "The plan is automatically split into buildable modules that respect your factory\u2019s constraints: transport dimensions, crane capacity, structural grid. Your catalogue modules are placed first to maximize repeatability. Residual spaces are filled with custom-fit elements.",
+                how_step3_title: "Optimize & Export",
+                how_step3_text: "Fine-tune the unit mix to maximize module repetition. Check zoning compliance. Export to Revit for execution. What used to take weeks now takes hours.",
+                features_label: "Features", features_title: "Everything you need to go from plan to production",
+                features_subtitle: "Six core capabilities designed for modular manufacturers who work with real architectural plans, not blank canvases.",
+                feat1_title: "Import existing plans", feat1_text: "Upload the architect\u2019s plan as-is. PDF, DWG/DXF, and soon IFC. No need to redraw. The existing plan \u2014 with its permits, regulations, and design intent \u2014 is your starting point.",
+                feat2_title: "Freeze critical elements", feat2_text: "Lock the elements that can\u2019t move: permitted facades, stairwells, technical shafts, load-bearing walls. Locked elements become absolute constraints. The architect stays in control.",
+                feat3_title: "Automatic modular split", feat3_text: "The plan is split into modules that respect your factory\u2019s real constraints: transport limits, crane capacity, structural grid. Catalogue modules are placed first to maximize repetition.",
+                feat4_title: "Smart residual filling", feat4_text: "Standard modules never cover 100% of a building. Corners, cores, and junctions are automatically filled with custom-fit elements that are dimensioned and buildable.",
+                feat5_title: "Unit mix optimization", feat5_text: "Find the best combination of unit types (studio, 1-bed, 2-bed, 3-bed) to maximize module repetition, reduce production costs, and meet the program. Integrates exposure and orientation constraints.",
+                feat6_title: "BIM export to Revit", feat6_text: "The modular plan goes straight into your existing BIM workflow. Every module and element is exported with its dimensions, type, and properties. The Revit model is ready for execution.",
+                feat_also: "Also included",
+                feat_sec1_title: "Automatic zoning check", feat_sec1_desc: "height limits, footprint, setbacks retrieved from the project address",
+                feat_sec2_title: "Google Maps base layer", feat_sec2_desc: "project positioned on the real plot with orientation and urban context",
+                feat_sec3_title: "Version history", feat_sec3_desc: "every run creates a saved version, one-click rollback",
+                feat_sec4_title: "8 editable element types", feat_sec4_desc: "walls, windows, doors, partitions, load-bearing, stairs, technical shafts, rooms",
+                feat_sec5_title: "5 building typologies", feat_sec5_desc: "multi-family residential, office, school, hotel, and single-family in development",
+                comp_label: "Comparison", comp_title: "What no one else does",
+                comp_subtitle: "Existing tools generate plans from scratch. Modular Studio is the only platform that converts an existing architectural plan into a modular-ready design.",
+                comp_capability: "Capability",
+                comp_row1: "Convert an existing plan to modular", comp_row2: "Freeze plan elements",
+                comp_row3: "Catalogue modules + custom elements", comp_row4: "Transport & crane constraints",
+                comp_row5: "Unit mix optimization", comp_row6: "Open platform / SaaS",
+                built_label: "Built for your workflow", built_title: "One platform, every team involved",
+                built_subtitle: "Whether you run the factory floor, lead the design office, or close the deals \u2014 Modular Studio fits into the way you already work.",
+                built_card1_title: "Secure every project before production", built_card1_role: "Production & factory managers",
+                built_card1_text: "Verify that every plan is 100% constructible in your factory before a single module is built. Transport dimensions, crane capacity, structural grid \u2014 all checked automatically.",
+                built_card1_li1: "No more last-minute redesigns on the factory floor",
+                built_card1_li2: "Manufacturing constraints enforced from day one",
+                built_card1_li3: "Clean data flows straight to production",
+                built_card2_title: "Adapt plans without starting over", built_card2_role: "Design & engineering teams",
+                built_card2_text: "Start from the architect\u2019s validated plan. Lock what matters \u2014 permitted facades, stairs, shafts. The rest adapts to modular constraints while preserving the original design intent.",
+                built_card2_li1: "Protect permits and architectural intent",
+                built_card2_li2: "Export directly to Revit for BIM workflows",
+                built_card2_li3: "Eliminate weeks of manual back-and-forth",
+                built_card3_title: "Respond faster, win more projects", built_card3_role: "Business development & sales",
+                built_card3_text: "Go from incoming plan to feasibility study and cost estimate in hours instead of weeks. Bid on more tenders, qualify more opportunities, and close faster than competitors still stuck in spreadsheets.",
+                built_card3_li1: "Faster turnaround on tenders and quotes",
+                built_card3_li2: "Reliable feasibility from the first meeting",
+                built_card3_li3: "More projects evaluated, more projects won",
+                cta_title: "Get early access to Modular Studio",
+                cta_subtitle: "Join the first modular manufacturers transforming how they go from architect\u2019s plan to production-ready design.",
+                form_placeholder: "Your work email", form_submit: "Request Access",
+                form_note: "No spam. Early access updates and a personal demo.",
+                form_success_title: "You\u2019re on the list",
+                form_success_text: "We\u2019ll reach out soon with early access details and a personal demo.",
+                form_sending: "Sending..."
+            },
+            fr: {
+                nav_problem: "Probl\u00e8me", nav_how: "Comment \u00e7a marche", nav_features: "Fonctionnalit\u00e9s", nav_comparison: "Comparaison",
+                cta_early_access: "Demander un acc\u00e8s", cta_how: "Voir comment \u00e7a marche",
+                hero_badge: "Acc\u00e8s anticip\u00e9 \u2014 Ouvert aux constructeurs modulaires",
+                hero_title: "Transformez n\u2019importe quel plan d\u2019architecte en projet modulaire constructible",
+                hero_subtitle: "S\u00e9curisez vos projets d\u00e8s la phase amont. Obtenez des donn\u00e9es propres et structur\u00e9es pour la production. R\u00e9pondez en heures, pas en semaines.",
+                metric_1: "des projets modulaires partent d\u2019un plan d\u2019architecte existant",
+                metric_2_value: "Semaines \u2192 Heures", metric_2: "temps d\u2019adaptation des plans avec Modular Studio",
+                metric_3_value: "Z\u00e9ro", metric_3: "outil concurrent pour la conversion plan \u2192 modulaire",
+                problem_label: "Le probl\u00e8me", problem_title: "Les constructeurs modulaires m\u00e9ritent de meilleurs outils",
+                problem_subtitle: "Chaque projet modulaire commence par un plan d\u2019architecte. Mais aujourd\u2019hui, transformer ce plan en quelque chose que votre usine peut r\u00e9ellement construire est lent, p\u00e9nible et risqu\u00e9.",
+                problem_card1_title: "Des plans non-modularisables d\u00e9couverts trop tard",
+                problem_card1_text: "Vous recevez un plan d\u2019architecte et r\u00e9alisez en cours de projet que certaines parties ne peuvent tout simplement pas \u00eatre construites en modules. Reconceptions, surco\u00fbts et retards s\u2019ensuivent.",
+                problem_card2_title: "Donn\u00e9es sales, processus manuels",
+                problem_card2_text: "Des semaines d\u2019allers-retours entre Excel et AutoCAD. Les dimensions ne correspondent pas, les donn\u00e9es se perdent entre conception et production.",
+                problem_card3_title: "Trop lent pour gagner des projets",
+                problem_card3_text: "Quand adapter un plan prend des semaines, vous ne pouvez r\u00e9pondre qu\u2019\u00e0 une fraction des appels d\u2019offres. Les opportunit\u00e9s vous passent sous le nez.",
+                how_label: "Comment \u00e7a marche", how_title: "Du plan d\u2019architecte au projet modulaire en 3 \u00e9tapes",
+                how_step1_title: "Importez & Prot\u00e9gez",
+                how_step1_text: "Uploadez le plan de l\u2019architecte tel quel (PDF, DWG/DXF, et bient\u00f4t IFC). Verrouillez les \u00e9l\u00e9ments qui ne doivent pas bouger \u2014 fa\u00e7ades valid\u00e9es, cages d\u2019escalier, murs porteurs, gaines techniques. Tout \u00e9l\u00e9ment verrouill\u00e9 devient une contrainte absolue.",
+                how_step2_title: "Conversion modulaire",
+                how_step2_text: "Le plan est automatiquement d\u00e9coup\u00e9 en modules constructibles respectant les contraintes de votre usine : dimensions de transport, capacit\u00e9 de grue, trame structurelle. Les modules de votre catalogue sont plac\u00e9s en priorit\u00e9. Les espaces r\u00e9siduels sont combl\u00e9s sur-mesure.",
+                how_step3_title: "Optimisez & Exportez",
+                how_step3_text: "Ajustez le mix logements pour maximiser la r\u00e9p\u00e9tition des modules. V\u00e9rifiez la conformit\u00e9 PLU. Exportez vers Revit pour passer en ex\u00e9cution. Le tout en quelques heures au lieu de quelques semaines.",
+                features_label: "Fonctionnalit\u00e9s", features_title: "Tout ce qu\u2019il faut pour passer du plan \u00e0 la production",
+                features_subtitle: "Six fonctionnalit\u00e9s cl\u00e9s con\u00e7ues pour les constructeurs modulaires qui travaillent avec de vrais plans d\u2019architecte.",
+                feat1_title: "Import de plans existants", feat1_text: "Uploadez le plan de l\u2019architecte tel quel. PDF, DWG/DXF, et bient\u00f4t IFC. Pas besoin de redessiner. Le plan existant \u2014 avec ses permis et son intention architecturale \u2014 est le point de d\u00e9part.",
+                feat2_title: "Verrouillage d\u2019\u00e9l\u00e9ments critiques", feat2_text: "Prot\u00e9gez les \u00e9l\u00e9ments qui ne doivent pas bouger : fa\u00e7ades valid\u00e9es, cages d\u2019escalier, gaines techniques, murs porteurs. Tout \u00e9l\u00e9ment verrouill\u00e9 devient une contrainte absolue. L\u2019architecte garde le contr\u00f4le.",
+                feat3_title: "D\u00e9coupage modulaire automatique", feat3_text: "Le plan est d\u00e9coup\u00e9 en modules respectant les contraintes r\u00e9elles de votre usine : limites de transport, capacit\u00e9 de grue, trame structurelle. Les modules catalogue sont plac\u00e9s en priorit\u00e9.",
+                feat4_title: "Remplissage intelligent des r\u00e9siduels", feat4_text: "Les modules standards ne couvrent jamais 100% d\u2019un b\u00e2timent. Les angles, noyaux et jonctions sont automatiquement combl\u00e9s avec des \u00e9l\u00e9ments sur-mesure constructibles.",
+                feat5_title: "Optimisation du mix logements", feat5_text: "Trouvez la meilleure combinaison de typologies (T1, T2, T3\u2026) pour maximiser la r\u00e9p\u00e9titivit\u00e9, r\u00e9duire les co\u00fbts et respecter le programme. Int\u00e8gre exposition et orientation.",
+                feat6_title: "Export BIM vers Revit", feat6_text: "Le plan modulaire part directement dans votre workflow BIM. Chaque module est export\u00e9 avec ses dimensions, son type et ses propri\u00e9t\u00e9s. La maquette Revit est exploitable imm\u00e9diatement.",
+                feat_also: "\u00c9galement inclus",
+                feat_sec1_title: "V\u00e9rification PLU automatique", feat_sec1_desc: "hauteur max, emprise au sol, retraits r\u00e9cup\u00e9r\u00e9s depuis l\u2019adresse du projet",
+                feat_sec2_title: "Fond de plan Google Maps", feat_sec2_desc: "projet positionn\u00e9 sur la parcelle r\u00e9elle avec orientation et contexte urbain",
+                feat_sec3_title: "Historique de versions", feat_sec3_desc: "chaque lancement produit une version sauvegard\u00e9e, retour arri\u00e8re en 1 clic",
+                feat_sec4_title: "8 types d\u2019\u00e9l\u00e9ments \u00e9ditables", feat_sec4_desc: "murs, fen\u00eatres, portes, cloisons, porteurs, escaliers, gaines techniques, pi\u00e8ces",
+                feat_sec5_title: "5 typologies de b\u00e2timents", feat_sec5_desc: "r\u00e9sidentiel collectif, bureau, \u00e9cole, h\u00f4tel, et maison individuelle en d\u00e9veloppement",
+                comp_label: "Comparaison", comp_title: "Ce que personne d\u2019autre ne fait",
+                comp_subtitle: "Les outils existants g\u00e9n\u00e8rent des plans \u00e0 partir de rien. Modular Studio est la seule plateforme qui convertit un plan d\u2019architecte existant en plan modulaire constructible.",
+                comp_capability: "Fonctionnalit\u00e9",
+                comp_row1: "Convertir un plan existant en modulaire", comp_row2: "Verrouiller des \u00e9l\u00e9ments du plan",
+                comp_row3: "Modules catalogue + \u00e9l\u00e9ments sur-mesure", comp_row4: "Contraintes transport & levage",
+                comp_row5: "Optimisation mix logements", comp_row6: "Plateforme ouverte / SaaS",
+                built_label: "Con\u00e7u pour votre workflow", built_title: "Une plateforme, toutes les \u00e9quipes impliqu\u00e9es",
+                built_subtitle: "Que vous g\u00e9riez l\u2019usine, dirigiez le bureau d\u2019\u00e9tudes ou concluiez les affaires \u2014 Modular Studio s\u2019int\u00e8gre \u00e0 votre fa\u00e7on de travailler.",
+                built_card1_title: "S\u00e9curisez chaque projet avant la production", built_card1_role: "Responsables production & usine",
+                built_card1_text: "V\u00e9rifiez que chaque plan est 100% constructible dans votre usine avant qu\u2019un seul module ne soit fabriqu\u00e9. Dimensions de transport, capacit\u00e9 de grue, trame structurelle \u2014 tout est v\u00e9rifi\u00e9 automatiquement.",
+                built_card1_li1: "Plus de reconceptions de derni\u00e8re minute en usine",
+                built_card1_li2: "Contraintes de fabrication respect\u00e9es d\u00e8s le d\u00e9part",
+                built_card1_li3: "Des donn\u00e9es propres directement vers la production",
+                built_card2_title: "Adaptez les plans sans repartir de z\u00e9ro", built_card2_role: "\u00c9quipes conception & ing\u00e9nierie",
+                built_card2_text: "Partez du plan valid\u00e9 de l\u2019architecte. Verrouillez ce qui compte \u2014 fa\u00e7ades autoris\u00e9es, escaliers, gaines. Le reste s\u2019adapte aux contraintes modulaires tout en pr\u00e9servant l\u2019intention architecturale.",
+                built_card2_li1: "Prot\u00e9gez les permis et l\u2019intention architecturale",
+                built_card2_li2: "Export direct vers Revit pour le workflow BIM",
+                built_card2_li3: "\u00c9liminez des semaines d\u2019allers-retours manuels",
+                built_card3_title: "R\u00e9pondez plus vite, gagnez plus de projets", built_card3_role: "D\u00e9veloppement commercial & ventes",
+                built_card3_text: "Passez du plan re\u00e7u \u00e0 l\u2019\u00e9tude de faisabilit\u00e9 et au chiffrage en heures au lieu de semaines. R\u00e9pondez \u00e0 plus d\u2019appels d\u2019offres et closez plus vite que vos concurrents.",
+                built_card3_li1: "D\u00e9lais de r\u00e9ponse plus courts sur les AO",
+                built_card3_li2: "Faisabilit\u00e9 fiable d\u00e8s le premier rendez-vous",
+                built_card3_li3: "Plus de projets \u00e9valu\u00e9s, plus de projets gagn\u00e9s",
+                cta_title: "Obtenez un acc\u00e8s anticip\u00e9 \u00e0 Modular Studio",
+                cta_subtitle: "Rejoignez les premiers constructeurs modulaires qui transforment leur fa\u00e7on de passer du plan d\u2019architecte au projet pr\u00eat pour la production.",
+                form_placeholder: "Votre email professionnel", form_submit: "Demander l\u2019acc\u00e8s",
+                form_note: "Pas de spam. Mises \u00e0 jour sur l\u2019acc\u00e8s anticip\u00e9 et une d\u00e9mo personnalis\u00e9e.",
+                form_success_title: "Vous \u00eates sur la liste",
+                form_success_text: "Nous vous contacterons bient\u00f4t avec les d\u00e9tails de l\u2019acc\u00e8s et une d\u00e9mo personnalis\u00e9e.",
+                form_sending: "Envoi..."
             }
+        };
+
+        let currentLang = localStorage.getItem('ms-lang') || 'en';
+
+        function setLang(lang) {
+            currentLang = lang;
+            localStorage.setItem('ms-lang', lang);
+            document.documentElement.lang = lang;
+            document.querySelectorAll('[data-i18n]').forEach(function(el) {
+                var key = el.getAttribute('data-i18n');
+                if (T[lang][key]) el.textContent = T[lang][key];
+            });
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(function(el) {
+                var key = el.getAttribute('data-i18n-placeholder');
+                if (T[lang][key]) el.placeholder = T[lang][key];
+            });
+            document.querySelectorAll('.lang-switch button').forEach(function(btn) {
+                btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+            });
+        }
+
+        document.querySelectorAll('.lang-switch button').forEach(function(btn) {
+            btn.addEventListener('click', function() { setLang(btn.getAttribute('data-lang')); });
+        });
+
+        setLang(currentLang);
+
+        // ==================== Nav ====================
+        var nav = document.getElementById('nav');
+        window.addEventListener('scroll', function() { nav.classList.toggle('scrolled', window.scrollY > 40); });
+
+        var hamburger = document.getElementById('navHamburger');
+        var mobileNav = document.getElementById('navMobile');
+        var mobileClose = document.getElementById('navMobileClose');
+        hamburger.addEventListener('click', function() { mobileNav.style.display = 'flex'; });
+        mobileClose.addEventListener('click', function() { mobileNav.style.display = 'none'; });
+        document.querySelectorAll('.nav-mobile-link').forEach(function(link) {
+            link.addEventListener('click', function() { mobileNav.style.display = 'none'; });
+        });
+
+        // ==================== Scroll animations ====================
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+        document.querySelectorAll('.fade-in').forEach(function(el) { observer.observe(el); });
+
+        // ==================== Waitlist form ====================
+        var form = document.getElementById('waitlistFormEl');
+        var formContainer = document.getElementById('waitlistForm');
+        var successMessage = document.getElementById('waitlistSuccess');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            var submitBtn = form.querySelector('button[type="submit"]');
+            submitBtn.disabled = true;
+            submitBtn.textContent = T[currentLang].form_sending;
+
+            var formData = new FormData(form);
+            fetch('https://api.web3forms.com/submit', { method: 'POST', body: formData })
+                .then(function(res) { return res.json(); })
+                .then(function(data) {
+                    if (data.success) {
+                        formContainer.style.display = 'none';
+                        successMessage.classList.add('show');
+                        successMessage.classList.add('visible');
+                    } else {
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = T[currentLang].form_submit;
+                    }
+                })
+                .catch(function() {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = T[currentLang].form_submit;
+                });
         });
     </script>
 </body>
