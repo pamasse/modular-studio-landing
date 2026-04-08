@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modular Studio by Vestack — Turn Any Architectural Plan Into a Modular-Ready Design</title>
+    <meta name="description" content="Modular Studio converts existing architectural plans into fully constructible modular designs. Secure projects, get clean data, and respond faster.">
+    <!-- ANALYTICS: Add Plausible or GA4 script here -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ========== RESET & VARIABLES ========== */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --vestack-green: #1a3c34;
+            --vestack-green-light: #2d5a4e;
+            --vestack-lime: #a8d86e;
+            --vestack-lime-dark: #8ec455;
+            --white: #ffffff;
+            --off-white: #f7f8f6;
+            --text-dark: #1a1a1a;
+            --text-muted: #6b7574;
+            --border: #e0e5e3;
+            --font: "Plus Jakarta Sans", sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font);
+            color: var(--text-dark);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* ========== UTILITIES ========== */
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section-label {
+            font-size: 0.8125rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .section-subtitle {
+            font-size: 1.0625rem;
+            line-height: 1.7;
+            max-width: 640px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font);
+            font-size: 0.9375rem;
+            font-weight: 600;
+            padding: 14px 28px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-1px);
+        }
+
+        .btn-lime {
+            background: var(--vestack-lime);
+            color: var(--vestack-green);
+        }
+
+        .btn-lime:hover {
+            background: var(--vestack-lime-dark);
+            box-shadow: 0 4px 16px rgba(168, 216, 110, 0.3);
+        }
+
+        .btn-ghost {
+            background: transparent;
+            color: var(--white);
+            border: 1.5px solid rgba(255,255,255,0.3);
+        }
+
+        .btn-ghost:hover {
+            border-color: rgba(255,255,255,0.6);
+            background: rgba(255,255,255,0.05);
+        }
+
+        .btn-dark {
+            background: var(--vestack-green);
+            color: var(--white);
+        }
+
+        .btn-dark:hover {
+            background: var(--vestack-green-light);
+        }
+
+        /* Scroll animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ========== NAV ========== */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 16px 0;
+            transition: background 0.3s, box-shadow 0.3s, padding 0.3s;
+        }
+
+        .nav.scrolled {
+            background: var(--vestack-green);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+            padding: 12px 0;
+        }
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+        }
+
+        .nav-logo-main {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .nav-logo-sub {
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: rgba(255,255,255,0.5);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: rgba(255,255,255,0.75);
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--white);
+        }
+
+        .nav-cta .btn {
+            padding: 10px 20px;
+            font-size: 0.8125rem;
+        }
+
+        .nav-hamburger {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        .nav-hamburger span {
+            display: block;
+            width: 22px;
+            height: 2px;
+            background: var(--white);
+            margin: 5px 0;
+            transition: transform 0.3s, opacity 0.3s;
+        }
+
+        /* ========== HERO ========== */
+        .hero {
+            background: var(--vestack-green);
+            padding: 160px 0 100px;
+            color: var(--white);
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(168, 216, 110, 0.12);
+            border: 1px solid rgba(168, 216, 110, 0.25);
+            color: var(--vestack-lime);
+            font-size: 0.8125rem;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 100px;
+            margin-bottom: 28px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.25rem);
+            font-weight: 700;
+            line-height: 1.15;
+            max-width: 720px;
+            margin-bottom: 20px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.125rem;
+            color: rgba(255,255,255,0.7);
+            max-width: 560px;
+            line-height: 1.7;
+            margin-bottom: 36px;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 72px;
+        }
+
+        .hero-metrics {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 40px;
+        }
+
+        .hero-metric-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--vestack-lime);
+            margin-bottom: 6px;
+        }
+
+        .hero-metric-label {
+            font-size: 0.875rem;
+            color: rgba(255,255,255,0.55);
+            line-height: 1.5;
+        }
+
+        /* ========== PROBLEM ========== */
+        .problem {
+            padding: 100px 0;
+            background: var(--white);
+        }
+
+        .problem .section-label {
+            color: var(--vestack-lime-dark);
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 48px;
+        }
+
+        .problem-card {
+            background: var(--off-white);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 32px 28px;
+            transition: box-shadow 0.25s, transform 0.25s;
+        }
+
+        .problem-card:hover {
+            box-shadow: 0 8px 30px rgba(26, 60, 52, 0.08);
+            transform: translateY(-2px);
+        }
+
+        .problem-card-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(168, 216, 110, 0.15);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 1.25rem;
+        }
+
+        .problem-card h3 {
+            font-size: 1.0625rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        .problem-card p {
+            font-size: 0.9375rem;
+            color: var(--text-muted);
+            line-height: 1.65;
+        }
+
+        /* ========== HOW IT WORKS ========== */
+        .how {
+            padding: 100px 0;
+            background: var(--vestack-green);
+            color: var(--white);
+        }
+
+        .how .section-label {
+            color: var(--vestack-lime);
+        }
+
+        .how .section-title {
+            color: var(--white);
+        }
+
+        .how-steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            margin-top: 56px;
+        }
+
+        .how-step {
+            position: relative;
+        }
+
+        .how-step-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: rgba(168, 216, 110, 0.15);
+            line-height: 1;
+            margin-bottom: 16px;
+        }
+
+        .how-step h3 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--vestack-lime);
+        }
+
+        .how-step p {
+            font-size: 0.9375rem;
+            color: rgba(255,255,255,0.65);
+            line-height: 1.7;
+        }
+
+        /* ========== FEATURES ========== */
+        .features {
+            padding: 100px 0;
+            background: var(--white);
+        }
+
+        .features .section-label {
+            color: var(--vestack-lime-dark);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 48px;
+        }
+
+        .feature-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 32px 28px;
+            transition: box-shadow 0.25s, transform 0.25s;
+        }
+
+        .feature-card:hover {
+            box-shadow: 0 8px 30px rgba(26, 60, 52, 0.08);
+            transform: translateY(-2px);
+        }
+
+        .feature-card-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(168, 216, 110, 0.15);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.0625rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            font-size: 0.9375rem;
+            color: var(--text-muted);
+            line-height: 1.65;
+        }
+
+        .features-secondary {
+            margin-top: 56px;
+            padding-top: 40px;
+            border-top: 1px solid var(--border);
+        }
+
+        .features-secondary h3 {
+            font-size: 1.0625rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .features-secondary-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px 32px;
+        }
+
+        .features-secondary-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.9375rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .features-secondary-item .check {
+            color: var(--vestack-lime-dark);
+            font-weight: 700;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        /* ========== COMPARISON ========== */
+        .comparison {
+            padding: 100px 0;
+            background: var(--off-white);
+        }
+
+        .comparison .section-label {
+            color: var(--vestack-lime-dark);
+        }
+
+        .comparison-table-wrap {
+            margin-top: 48px;
+            overflow-x: auto;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            background: var(--white);
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9375rem;
+            min-width: 640px;
+        }
+
+        .comparison-table thead th {
+            padding: 16px 20px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.8125rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            border-bottom: 2px solid var(--border);
+            color: var(--text-muted);
+            white-space: nowrap;
+        }
+
+        .comparison-table thead th:last-child {
+            background: var(--vestack-lime);
+            color: var(--vestack-green);
+            font-weight: 700;
+        }
+
+        .comparison-table tbody td {
+            padding: 14px 20px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-muted);
+        }
+
+        .comparison-table tbody td:first-child {
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .comparison-table tbody td:last-child {
+            background: rgba(168, 216, 110, 0.06);
+            font-weight: 600;
+        }
+
+        .comparison-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .comparison-table .check-yes {
+            color: var(--vestack-lime-dark);
+            font-weight: 700;
+        }
+
+        .comparison-table .check-no {
+            color: #c0c5c3;
+        }
+
+        .comparison-table .check-partial {
+            color: #d4a94e;
+        }
+
+        /* ========== MARKET ========== */
+        .market {
+            padding: 100px 0;
+            background: var(--white);
+        }
+
+        .market .section-label {
+            color: var(--vestack-lime-dark);
+        }
+
+        .market-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-top: 48px;
+        }
+
+        .market-card {
+            text-align: center;
+            background: var(--off-white);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 36px 24px;
+        }
+
+        .market-card-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--vestack-green);
+            margin-bottom: 8px;
+        }
+
+        .market-card-label {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* ========== CTA / WAITLIST ========== */
+        .cta-section {
+            padding: 100px 0;
+            background: var(--vestack-green);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .cta-section .section-title {
+            color: var(--white);
+            max-width: 600px;
+            margin: 0 auto 12px;
+        }
+
+        .cta-section .section-subtitle {
+            color: rgba(255,255,255,0.65);
+            margin: 0 auto 40px;
+            text-align: center;
+        }
+
+        .waitlist-form {
+            display: flex;
+            gap: 12px;
+            max-width: 460px;
+            margin: 0 auto 16px;
+        }
+
+        .waitlist-form input {
+            flex: 1;
+            padding: 14px 18px;
+            border-radius: 8px;
+            border: 1.5px solid rgba(255,255,255,0.15);
+            background: rgba(255,255,255,0.08);
+            color: var(--white);
+            font-family: var(--font);
+            font-size: 0.9375rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .waitlist-form input::placeholder {
+            color: rgba(255,255,255,0.35);
+        }
+
+        .waitlist-form input:focus {
+            border-color: var(--vestack-lime);
+        }
+
+        .waitlist-note {
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.4);
+        }
+
+        .waitlist-success {
+            display: none;
+            text-align: center;
+        }
+
+        .waitlist-success.show {
+            display: block;
+        }
+
+        .waitlist-success-icon {
+            width: 56px;
+            height: 56px;
+            background: rgba(168, 216, 110, 0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            font-size: 1.5rem;
+        }
+
+        .waitlist-success h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .waitlist-success p {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.9375rem;
+        }
+
+        /* ========== FOOTER ========== */
+        .footer {
+            padding: 32px 0;
+            background: #152e28;
+            text-align: center;
+        }
+
+        .footer p {
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.35);
+        }
+
+        .footer a {
+            color: rgba(255,255,255,0.5);
+            transition: color 0.2s;
+        }
+
+        .footer a:hover {
+            color: var(--vestack-lime);
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 900px) {
+            .hero-metrics {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .problem-grid,
+            .how-steps,
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .market-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .features-secondary-list {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .nav-hamburger {
+                display: block;
+            }
+
+            .nav-mobile {
+                display: flex !important;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: var(--vestack-green);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 32px;
+                z-index: 99;
+            }
+
+            .nav-mobile a {
+                font-size: 1.125rem;
+                color: rgba(255,255,255,0.8);
+                font-weight: 500;
+            }
+
+            .nav-mobile .btn-lime {
+                margin-top: 8px;
+            }
+
+            .nav-mobile-close {
+                position: absolute;
+                top: 20px;
+                right: 24px;
+                background: none;
+                border: none;
+                color: var(--white);
+                font-size: 1.5rem;
+                cursor: pointer;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero {
+                padding: 130px 0 72px;
+            }
+
+            .hero h1 {
+                font-size: 1.75rem;
+            }
+
+            .hero-ctas {
+                flex-direction: column;
+                margin-bottom: 48px;
+            }
+
+            .hero-ctas .btn {
+                width: 100%;
+                text-align: center;
+            }
+
+            .waitlist-form {
+                flex-direction: column;
+            }
+
+            .market-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .comparison-table-wrap {
+                margin-left: -24px;
+                margin-right: -24px;
+                border-radius: 0;
+                border-left: none;
+                border-right: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ========== NAV ========== -->
+    <nav class="nav" id="nav">
+        <div class="container nav-inner">
+            <a href="#" class="nav-logo">
+                <span class="nav-logo-main">Modular Studio</span>
+                <span class="nav-logo-sub">by Vestack</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#problem">Problem</a></li>
+                <li><a href="#how">How It Works</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#comparison">Comparison</a></li>
+                <li class="nav-cta"><a href="#waitlist" class="btn btn-lime">Request Early Access</a></li>
+            </ul>
+            <button class="nav-hamburger" id="navHamburger" aria-label="Open menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile nav overlay -->
+    <div class="nav-mobile" id="navMobile" style="display:none;">
+        <button class="nav-mobile-close" id="navMobileClose" aria-label="Close menu">&times;</button>
+        <a href="#problem" class="nav-mobile-link">Problem</a>
+        <a href="#how" class="nav-mobile-link">How It Works</a>
+        <a href="#features" class="nav-mobile-link">Features</a>
+        <a href="#comparison" class="nav-mobile-link">Comparison</a>
+        <a href="#waitlist" class="btn btn-lime">Request Early Access</a>
+    </div>
+
+    <!-- ========== HERO ========== -->
+    <section class="hero" id="hero">
+        <div class="container">
+            <div class="hero-badge">Early Access &mdash; Now accepting modular manufacturers</div>
+            <h1>Turn any architectural plan into a fully constructible modular design</h1>
+            <p class="hero-subtitle">Secure your projects from day one. Get clean, structured data for production. Respond to opportunities in hours, not weeks.</p>
+            <div class="hero-ctas">
+                <a href="#waitlist" class="btn btn-lime">Request Early Access</a>
+                <a href="#how" class="btn btn-ghost">See How It Works</a>
+            </div>
+            <div class="hero-metrics">
+                <div class="fade-in">
+                    <div class="hero-metric-value">80%+</div>
+                    <div class="hero-metric-label">of modular projects start from existing architectural plans</div>
+                </div>
+                <div class="fade-in">
+                    <div class="hero-metric-value">Weeks &rarr; Hours</div>
+                    <div class="hero-metric-label">plan adaptation time with Modular Studio</div>
+                </div>
+                <div class="fade-in">
+                    <div class="hero-metric-value">Zero</div>
+                    <div class="hero-metric-label">competing tools for plan-to-modular conversion</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== PROBLEM ========== -->
+    <section class="problem" id="problem">
+        <div class="container">
+            <div class="section-label fade-in">The Problem</div>
+            <h2 class="section-title fade-in">Modular builders deserve better tools</h2>
+            <p class="section-subtitle fade-in">Every modular project starts with an architect's plan. But today, turning that plan into something your factory can actually build is slow, painful, and risky.</p>
+            <div class="problem-grid">
+                <div class="problem-card fade-in">
+                    <div class="problem-card-icon">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="color:var(--vestack-green)"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                    </div>
+                    <h3>Unmodularizable plans discovered too late</h3>
+                    <p>You receive an architect's plan and realize mid-project that parts of it simply can't be built as modules. Redesigns, cost overruns, and delays follow.</p>
+                </div>
+                <div class="problem-card fade-in">
+                    <div class="problem-card-icon">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="color:var(--vestack-green)"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                    </div>
+                    <h3>Messy data, manual workflows</h3>
+                    <p>Weeks of back-and-forth between Excel and AutoCAD. Dimensions don't match, data gets lost in translation between design and production.</p>
+                </div>
+                <div class="problem-card fade-in">
+                    <div class="problem-card-icon">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="color:var(--vestack-green)"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    </div>
+                    <h3>Too slow to win projects</h3>
+                    <p>When adapting a plan takes weeks, you can only bid on a fraction of available projects. Opportunities pass you by while you're still in the spreadsheet.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== HOW IT WORKS ========== -->
+    <section class="how" id="how">
+        <div class="container">
+            <div class="section-label fade-in">How It Works</div>
+            <h2 class="section-title fade-in">From architect's plan to modular-ready in 3 steps</h2>
+            <div class="how-steps">
+                <div class="how-step fade-in">
+                    <div class="how-step-number">01</div>
+                    <h3>Import &amp; Protect</h3>
+                    <p>Upload the architect's plan as-is (PDF, DWG/DXF, and soon IFC). Lock the elements that must stay fixed &mdash; permitted facades, stairwells, structural walls, technical shafts. Everything locked becomes an absolute constraint.</p>
+                </div>
+                <div class="how-step fade-in">
+                    <div class="how-step-number">02</div>
+                    <h3>Modular Conversion</h3>
+                    <p>The plan is automatically split into buildable modules that respect your factory's constraints: transport dimensions, crane capacity, structural grid. Your catalogue modules are placed first to maximize repeatability. Residual spaces are filled with custom-fit elements.</p>
+                </div>
+                <div class="how-step fade-in">
+                    <div class="how-step-number">03</div>
+                    <h3>Optimize &amp; Export</h3>
+                    <p>Fine-tune the unit mix to maximize module repetition. Check zoning compliance. Export to Revit for execution. What used to take weeks now takes hours.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FEATURES ========== -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-label fade-in">Features</div>
+            <h2 class="section-title fade-in">Everything you need to go from plan to production</h2>
+            <p class="section-subtitle fade-in">Six core capabilities designed for modular manufacturers who work with real architectural plans, not blank canvases.</p>
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-card-icon">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="color:var(--vestack-green)"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                    </div>
+                    <h3>Import existing plans</h3>
+                    <p>Upload the architect's plan as-is. PDF, DWG/DXF, and soon IFC. No need to redraw. The existing plan &mdash; with its permits, regulations, and design intent &mdash; is your starting point.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-card-icon">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="color:var(--vestack-green)"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+                    </div>
+                    <h3>Freeze critical elements</h3>
+                    <p>Lock the elements that can't move: permitted facades, stairwells, technical shafts, load-bearing walls. Locked elements become absolute constraints. The architect stays in control.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-card-icon">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="color:var(--vestack-green)"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+                    </div>
+                    <h3>Automatic modular split</h3>
+                    <p>The plan is split into modules that respect your factory's real constraints: transport limits, crane capacity, structural grid. Catalogue modules are placed first to maximize repetition.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-card-icon">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="color:var(--vestack-green)"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+                    </div>
+                    <h3>Smart residual filling</h3>
+                    <p>Standard modules never cover 100% of a building. Corners, cores, and junctions are automatically filled with custom-fit elements that are dimensioned and buildable.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-card-icon">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="color:var(--vestack-green)"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                    </div>
+                    <h3>Unit mix optimization</h3>
+                    <p>Find the best combination of unit types (studio, 1-bed, 2-bed, 3-bed) to maximize module repetition, reduce production costs, and meet the program. Integrates exposure and orientation constraints.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-card-icon">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="color:var(--vestack-green)"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+                    </div>
+                    <h3>BIM export to Revit</h3>
+                    <p>The modular plan goes straight into your existing BIM workflow. Every module and element is exported with its dimensions, type, and properties. The Revit model is ready for execution.</p>
+                </div>
+            </div>
+
+            <div class="features-secondary fade-in">
+                <h3>Also included</h3>
+                <div class="features-secondary-list">
+                    <div class="features-secondary-item">
+                        <span class="check">&#10003;</span>
+                        <span><strong>Automatic zoning check</strong> &mdash; height limits, footprint, setbacks retrieved from the project address</span>
+                    </div>
+                    <div class="features-secondary-item">
+                        <span class="check">&#10003;</span>
+                        <span><strong>Google Maps base layer</strong> &mdash; project positioned on the real plot with orientation and urban context</span>
+                    </div>
+                    <div class="features-secondary-item">
+                        <span class="check">&#10003;</span>
+                        <span><strong>Version history</strong> &mdash; every run creates a saved version, one-click rollback</span>
+                    </div>
+                    <div class="features-secondary-item">
+                        <span class="check">&#10003;</span>
+                        <span><strong>8 editable element types</strong> &mdash; walls, windows, doors, partitions, load-bearing, stairs, technical shafts, rooms</span>
+                    </div>
+                    <div class="features-secondary-item">
+                        <span class="check">&#10003;</span>
+                        <span><strong>5 building typologies</strong> &mdash; multi-family residential, office, school, hotel, and single-family in development</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== COMPARISON ========== -->
+    <section class="comparison" id="comparison">
+        <div class="container">
+            <div class="section-label fade-in">Comparison</div>
+            <h2 class="section-title fade-in">What no one else does</h2>
+            <p class="section-subtitle fade-in">Existing tools generate plans from scratch. Modular Studio is the only platform that converts an existing architectural plan into a modular-ready design.</p>
+            <div class="comparison-table-wrap fade-in">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Capability</th>
+                            <th>Zenerate</th>
+                            <th>TestFit</th>
+                            <th>Higharc</th>
+                            <th>Prescient</th>
+                            <th>Modular Studio</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Convert an existing plan to modular</td>
+                            <td class="check-no">&#10007;</td>
+                            <td class="check-no">&#10007;</td>
+                            <td class="check-no">&#10007;</td>
+                            <td class="check-no">&#10007;</td>
+                            <td class="check-yes">&#10003;</td>
+                        </tr>
+                        <tr>
+                            <td>Freeze plan elements</td>
+                            <td class="check-no">&#10007;</td>
+                            <td class="check-no">&#10007;</td>
+                            <td class="check-no">&#10007;</td>
+                            <td class="check-no">&#10007;</td>
+                            <td class="check-yes">&#10003;</td>
+                        </tr>
+                        <tr>
+                            <td>Catalogue modules + custom elements</td>
+                            <td class="check-no">&#10007;</td>
+                            <td class="check-no">&#10007;</td>
+                            <td class="check-no">&#10007;</td>
+                            <td class="check-partial">&#9888; closed</td>
+                            <td class="check-yes">&#10003;</td>
+                        </tr>
+                        <tr>
+                            <td>Transport &amp; crane constraints</td>
+                            <td class="check-no">&#10007;</td>
+                            <td class="check-no">&#10007;</td>
+                            <td class="check-no">&#10007;</td>
+                            <td class="check-partial">&#9888; closed</td>
+                            <td class="check-yes">&#10003;</td>
+                        </tr>
+                        <tr>
+                            <td>Unit mix optimization</td>
+                            <td class="check-yes">&#10003;</td>
+                            <td class="check-yes">&#10003;</td>
+                            <td class="check-no">&#10007;</td>
+                            <td class="check-no">&#10007;</td>
+                            <td class="check-yes">&#10003;</td>
+                        </tr>
+                        <tr>
+                            <td>Open platform / SaaS</td>
+                            <td class="check-yes">&#10003;</td>
+                            <td class="check-yes">&#10003;</td>
+                            <td class="check-yes">&#10003;</td>
+                            <td class="check-no">&#10007;</td>
+                            <td class="check-yes">&#10003;</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== MARKET ========== -->
+    <section class="market" id="market">
+        <div class="container">
+            <div class="section-label fade-in">Market Opportunity</div>
+            <h2 class="section-title fade-in">A massive market with no dedicated tools</h2>
+            <div class="market-grid">
+                <div class="market-card fade-in">
+                    <div class="market-card-value">$103B</div>
+                    <div class="market-card-label">Global modular construction market (2024)</div>
+                </div>
+                <div class="market-card fade-in">
+                    <div class="market-card-value">~8%</div>
+                    <div class="market-card-label">Annual growth &rarr; $162B by 2030</div>
+                </div>
+                <div class="market-card fade-in">
+                    <div class="market-card-value">1,600+</div>
+                    <div class="market-card-label">Modular manufacturers worldwide</div>
+                </div>
+                <div class="market-card fade-in">
+                    <div class="market-card-value">0</div>
+                    <div class="market-card-label">Commercial tools for plan-to-modular conversion</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CTA / WAITLIST ========== -->
+    <section class="cta-section" id="waitlist">
+        <div class="container">
+            <h2 class="section-title fade-in">Get early access to Modular Studio</h2>
+            <p class="section-subtitle fade-in">Join the first modular manufacturers transforming how they go from architect's plan to production-ready design.</p>
+            <div id="waitlistForm" class="fade-in">
+                <form class="waitlist-form" id="waitlistFormEl">
+                    <input type="email" placeholder="Your work email" required aria-label="Email address">
+                    <button type="submit" class="btn btn-lime">Request Access</button>
+                </form>
+                <p class="waitlist-note">No spam. Early access updates and a personal demo.</p>
+            </div>
+            <div id="waitlistSuccess" class="waitlist-success fade-in">
+                <div class="waitlist-success-icon">&#10003;</div>
+                <h3>You're on the list</h3>
+                <p>We'll reach out soon with early access details and a personal demo.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Modular Studio by <a href="https://vestack.com" target="_blank" rel="noopener">Vestack</a></p>
+        </div>
+    </footer>
+
+    <!-- ========== JS ========== -->
+    <script>
+        // Nav scroll effect
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 40);
+        });
+
+        // Mobile nav
+        const hamburger = document.getElementById('navHamburger');
+        const mobileNav = document.getElementById('navMobile');
+        const mobileClose = document.getElementById('navMobileClose');
+
+        hamburger.addEventListener('click', () => {
+            mobileNav.style.display = 'flex';
+        });
+
+        mobileClose.addEventListener('click', () => {
+            mobileNav.style.display = 'none';
+        });
+
+        document.querySelectorAll('.nav-mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileNav.style.display = 'none';
+            });
+        });
+
+        // Scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Waitlist form
+        // TODO: Connect to your backend (e.g., POST to /api/waitlist or a service like Mailchimp, ConvertKit, etc.)
+        const form = document.getElementById('waitlistFormEl');
+        const formContainer = document.getElementById('waitlistForm');
+        const successMessage = document.getElementById('waitlistSuccess');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = form.querySelector('input[type="email"]').value;
+            console.log('Waitlist signup:', email);
+
+            // Hide form, show success
+            formContainer.style.display = 'none';
+            successMessage.classList.add('show');
+            successMessage.classList.add('visible');
+        });
+    </script>
+</body>
+</html>
