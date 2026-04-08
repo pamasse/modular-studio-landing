@@ -685,7 +685,7 @@
             }
         };
 
-        let currentLang = localStorage.getItem('ms-lang') || 'en';
+        let currentLang = localStorage.getItem('ms-lang') || (navigator.language && navigator.language.startsWith('fr') ? 'fr' : 'en');
 
         function setLang(lang) {
             currentLang = lang;
