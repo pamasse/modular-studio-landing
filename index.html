@@ -1164,8 +1164,15 @@
             <h2 class="section-title fade-in">Get early access to Modular Studio</h2>
             <p class="section-subtitle fade-in">Join the first modular manufacturers transforming how they go from architect's plan to production-ready design.</p>
             <div id="waitlistForm" class="fade-in">
-                <form class="waitlist-form" id="waitlistFormEl">
-                    <input type="email" placeholder="Your work email" required aria-label="Email address">
+                <form class="waitlist-form" id="waitlistFormEl" action="https://api.web3forms.com/submit" method="POST">
+                    <!-- Web3Forms: replace with your access key from https://web3forms.com -->
+                    <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+                    <input type="hidden" name="subject" content="New Modular Studio Waitlist Signup">
+                    <input type="hidden" name="from_name" value="Modular Studio Waitlist">
+                    <input type="hidden" name="redirect" value="https://modular-studio-landing.onrender.com/#waitlist">
+                    <!-- Honeypot anti-spam -->
+                    <input type="checkbox" name="botcheck" class="hidden" style="display:none">
+                    <input type="email" name="email" placeholder="Your work email" required aria-label="Email address">
                     <button type="submit" class="btn btn-lime">Request Access</button>
                 </form>
                 <p class="waitlist-note">No spam. Early access updates and a personal demo.</p>
@@ -1226,21 +1233,39 @@
 
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-        // Waitlist form
-        // TODO: Connect to your backend (e.g., POST to /api/waitlist or a service like Mailchimp, ConvertKit, etc.)
+        // Waitlist form — Web3Forms handles submission via POST
         const form = document.getElementById('waitlistFormEl');
         const formContainer = document.getElementById('waitlistForm');
         const successMessage = document.getElementById('waitlistSuccess');
 
-        form.addEventListener('submit', (e) => {
+        form.addEventListener('submit', async (e) => {
             e.preventDefault();
-            const email = form.querySelector('input[type="email"]').value;
-            console.log('Waitlist signup:', email);
+            const submitBtn = form.querySelector('button[type="submit"]');
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
 
-            // Hide form, show success
-            formContainer.style.display = 'none';
-            successMessage.classList.add('show');
-            successMessage.classList.add('visible');
+            try {
+                const formData = new FormData(form);
+                const res = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    body: formData
+                });
+                const data = await res.json();
+
+                if (data.success) {
+                    formContainer.style.display = 'none';
+                    successMessage.classList.add('show');
+                    successMessage.classList.add('visible');
+                } else {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Request Access';
+                    alert('Something went wrong. Please try again.');
+                }
+            } catch (err) {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Request Access';
+                alert('Network error. Please try again.');
+            }
         });
     </script>
 </body>
