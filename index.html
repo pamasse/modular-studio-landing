@@ -5,6 +5,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modular Studio by Vestack — Turn Any Architectural Plan Into a Modular-Ready Design</title>
     <meta name="description" content="Modular Studio converts existing architectural plans into fully constructible modular designs. Secure projects, get clean data, and respond faster.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://modular-studio-landing.onrender.com/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Modular Studio by Vestack — Turn Any Plan Into a Modular Design">
+    <meta property="og:description" content="The only platform that converts existing architectural plans into fully constructible modular designs. Secure projects, get clean data, respond faster.">
+    <meta property="og:url" content="https://modular-studio-landing.onrender.com/">
+    <meta property="og:site_name" content="Modular Studio by Vestack">
+    <!-- TODO: Replace with actual OG image (1200x630px recommended) -->
+    <meta property="og:image" content="https://modular-studio-landing.onrender.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Modular Studio by Vestack — Turn Any Plan Into a Modular Design">
+    <meta name="twitter:description" content="The only platform that converts existing architectural plans into fully constructible modular designs.">
+    <!-- TODO: Replace with actual OG image -->
+    <meta name="twitter:image" content="https://modular-studio-landing.onrender.com/og-image.png">
+
+    <!-- Favicon -->
+    <!-- TODO: Replace with actual favicon files -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Organization",
+                "name": "Vestack",
+                "url": "https://vestack.com",
+                "description": "Modular construction technology company"
+            },
+            {
+                "@type": "SoftwareApplication",
+                "name": "Modular Studio",
+                "description": "Platform that converts existing architectural plans into fully constructible modular designs",
+                "applicationCategory": "DesignApplication",
+                "operatingSystem": "Web",
+                "offers": {
+                    "@type": "Offer",
+                    "availability": "https://schema.org/PreOrder",
+                    "description": "Early Access"
+                },
+                "creator": {
+                    "@type": "Organization",
+                    "name": "Vestack",
+                    "url": "https://vestack.com"
+                }
+            }
+        ]
+    }
+    </script>
+
     <!-- ANALYTICS: Add Plausible or GA4 script here -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -132,6 +191,13 @@
             opacity: 0;
             transform: translateY(24px);
             transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        /* Ensure content is visible if JS is disabled (SEO + accessibility) */
+        noscript .fade-in,
+        .no-js .fade-in {
+            opacity: 1;
+            transform: none;
         }
 
         .fade-in.visible {
@@ -1118,6 +1184,9 @@
             <p>&copy; 2026 Modular Studio by <a href="https://vestack.com" target="_blank" rel="noopener">Vestack</a></p>
         </div>
     </footer>
+
+    <!-- Fallback: make all fade-in elements visible if JS is disabled -->
+    <noscript><style>.fade-in { opacity: 1 !important; transform: none !important; }</style></noscript>
 
     <!-- ========== JS ========== -->
     <script>
